@@ -8,3 +8,6 @@
 *.ht2
 *.sh
 *.tar
+
+#Ignore HTML QC files, upload only zip file
+*.html
