@@ -3,5 +3,7 @@
 .RData
 .Ruserdata
 
-# Ignore raw data 
+# Ignore raw data + index files
 *.gz
+*.ht2
+*.sh
