@@ -25,6 +25,8 @@ samout=$4
 mkdir -p $SUBMITDIR/alignment_output
 
 #Run Bowtie2
-hisat2 -x $SUBMITDIR/grch38/$ref -1 $SUBMITDIR/Raw_reads/$fq1 -2 $SUBMITDIR/Raw_reads/$fq2 \
+hisat2 -x $SUBMITDIR/grch38/$ref -1 $SUBMITDIR/trimmed_reads/$fq1 -2 $SUBMITDIR/trimmed_reads/$fq2 \
 -S $SUBMITDIR/alignment_output/$samout --summary-file hisat_summary
 
+#Finish message
+echo "Done"
