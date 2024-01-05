@@ -3,7 +3,7 @@
 #SBATCH --account=ec12
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --time=1:00:00
+#SBATCH --time=2:30:00
 #SBATCH --mem=1G
 
 #setup
