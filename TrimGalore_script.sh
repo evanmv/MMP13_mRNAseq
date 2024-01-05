@@ -19,4 +19,7 @@ fq1=$1
 fq2=$2
 
 #Run TrimGalore
-trim_galore --paired $SUBMITDIR/Raw_reads/$fq1 $SUBMITDIR/Raw_reads/$fq2 
+trim_galore --paired $SUBMITDIR/../Raw_reads/$fq1 $SUBMITDIR/../Raw_reads/$fq2 
+
+#Finish message
+echo "Done"
