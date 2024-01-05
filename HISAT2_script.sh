@@ -19,14 +19,15 @@ module load SAMtools/1.17-GCC-12.2.0
 ref=$1
 fq1=$2
 fq2=$3
-samout=$4
+sample=$4
 
 #New directory 
 mkdir -p $SUBMITDIR/alignment_output
 
 #Run Bowtie2
 hisat2 -x $SUBMITDIR/grch38/$ref -1 $SUBMITDIR/trimmed_reads/$fq1 -2 $SUBMITDIR/trimmed_reads/$fq2 \
--S $SUBMITDIR/alignment_output/$samout --summary-file hisat_summary
+-S $SUBMITDIR/alignment_output/$sample_AlignedReads.sam \
+--summary-file $SUBMITDIR/alignment_output/$sample_hisat_summary
 
 #Finish message
 echo "Done"
