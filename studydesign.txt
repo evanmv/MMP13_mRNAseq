@@ -1,0 +1,7 @@
+sample	group
+B1	Knockdown
+B2	Knockdown
+B3	Knockdown
+C1	Control
+C2	Control
+C3	Control
