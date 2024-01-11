@@ -2,7 +2,7 @@
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("Rsubread")
-
+BiocManager::install("apeglm")
 library(Rsubread)
 library(DESeq2)
 
@@ -30,4 +30,21 @@ all(rownames(colData) == colnames(fC$counts))
 dds <- DESeqDataSetFromMatrix(countData = fC$counts,
                               colData = colData,
                               design = ~ group)
+#Pre-filtering 
+smallestGroupSize <- 3
+keep <- rowSums(counts(dds) >=10) >= smallestGroupSize
+dds <- dds[keep, ]
 
+#Start DGE analysis
+dds <- DESeq(dds)
+res <- results(dds)
+res
+
+#Shrinkage of effect size
+resultsNames(dds)
+resLFC <- lfcShrink(dds, 
+                    coef = "group_Knockdown_vs_Control",
+                    type = "apeglm")
+
+resOrdered <- res[order(res$pvalue),]
+summary(res)
