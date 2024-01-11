@@ -4,8 +4,9 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("Rsubread")
 
 library(Rsubread)
+library(DESeq2)
 
-##featureCounts
+##featureCounts -----
 fC <- featureCounts(files = c("alignment_output/B1_AlignedReads.sam","alignment_output/B2_AlignedReads.sam","alignment_output/B3_AlignedReads.sam", "alignment_output/C1_AlignedReads.sam","alignment_output/C2_AlignedReads.sam","alignment_output/C3_AlignedReads.sam"),
               annot.inbuilt = "hg38",
               useMetaFeatures = TRUE,
@@ -13,3 +14,20 @@ fC <- featureCounts(files = c("alignment_output/B1_AlignedReads.sam","alignment_
               nthreads = 8)
 View(fC$annotation)
 View(fC$stat)
+View(fC$counts)
+
+##DESeq2 -----
+
+#Change col names from feature counts to match study design file
+colnames(fC$counts) <- sub("_AlignedReads.sam", "", colnames(fC$counts))
+#Read in study design file
+colData <- read.delim("studydesign.txt", row.names = 1)
+?read.delim
+
+#Double check for matching row/column names
+all(rownames(colData) == colnames(fC$counts))
+
+dds <- DESeqDataSetFromMatrix(countData = fC$counts,
+                              colData = colData,
+                              design = ~ group)
+
