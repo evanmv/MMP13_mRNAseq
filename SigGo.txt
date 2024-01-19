@@ -1,0 +1,437 @@
+GOID: GO:0050839
+Term: cell adhesion molecule binding
+Ontology: MF
+Definition: Binding to a cell adhesion molecule.
+Synonym: CAM binding
+Synonym: adhesive extracellular matrix constituent
+Synonym: cell adhesion molecule activity
+Synonym: cell adhesion receptor activity
+-----------------------------------------
+GOID: GO:0045296
+Term: cadherin binding
+Ontology: MF
+Definition: Binding to cadherin, a type I membrane protein involved in cell adhesion.
+-----------------------------------------
+GOID: GO:0015179
+Term: L-amino acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of an L-amino acid from one side of a membrane to the other. L-amino acids
+    are the L-enantiomers of amino acids.
+Synonym: L-amino acid transporter activity
+-----------------------------------------
+GOID: GO:0015171
+Term: amino acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of amino acids from one side of a membrane to the other. Amino acids are
+    organic molecules that contain an amino group and a carboxyl group.
+Synonym: GO:0015359
+Synonym: amino acid permease activity
+Synonym: general amino acid permease activity
+Synonym: hydroxy/aromatic amino acid permease activity
+Synonym: amino acid transporter activity
+Synonym: amino acid/choline transmembrane transporter activity
+Secondary: GO:0015359
+-----------------------------------------
+GOID: GO:0072349
+Term: modified amino acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of modified amino acids from one side of a membrane to the other.
+Synonym: amino acid derivative transmembrane transporter activity
+Synonym: modified amino acid transporter activity
+-----------------------------------------
+GOID: GO:0008509
+Term: anion transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of a negatively charged ion from one side of a membrane to the other.
+Synonym: anion transporter activity
+-----------------------------------------
+GOID: GO:0005509
+Term: calcium ion binding
+Ontology: MF
+Definition: Binding to a calcium ion (Ca2+).
+Synonym: calcium ion storage activity
+-----------------------------------------
+GOID: GO:0005515
+Term: protein binding
+Ontology: MF
+Definition: Binding to a protein.
+Synonym: GO:0001948
+Synonym: GO:0045308
+Synonym: protein amino acid binding
+Synonym: glycoprotein binding
+Secondary: GO:0001948
+Secondary: GO:0045308
+-----------------------------------------
+GOID: GO:0003779
+Term: actin binding
+Ontology: MF
+Definition: Binding to monomeric or multimeric forms of actin, including actin filaments.
+Synonym: membrane associated actin binding
+-----------------------------------------
+GOID: GO:0015175
+Term: neutral amino acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of neutral amino acids from one side of a membrane to the other. Neutral
+    amino acids have side chains with no charge at pH 7.3.
+Synonym: neutral amino acid transporter activity
+-----------------------------------------
+GOID: GO:0005342
+Term: organic acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of organic acids from one side of a membrane to the other. Organic acids
+    are acidic compound containing carbon in covalent linkage.
+-----------------------------------------
+GOID: GO:0046943
+Term: carboxylic acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of carboxylic acids from one side of a membrane to the other. Carboxylic
+    acids are organic acids containing one or more carboxyl (COOH) groups or anions (COO-).
+-----------------------------------------
+GOID: GO:0008092
+Term: cytoskeletal protein binding
+Ontology: MF
+Definition: Binding to a protein component of a cytoskeleton (actin, microtubule, or intermediate filament
+    cytoskeleton).
+-----------------------------------------
+GOID: GO:0042802
+Term: identical protein binding
+Ontology: MF
+Definition: Binding to an identical protein or proteins.
+Synonym: isoform-specific homophilic binding
+Synonym: protein homopolymerization
+-----------------------------------------
+GOID: GO:0016408
+Term: C-acyltransferase activity
+Ontology: MF
+Definition: Catalysis of the transfer of an acyl group to a carbon atom on the acceptor molecule.
+-----------------------------------------
+GOID: GO:0015173
+Term: aromatic amino acid transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of aromatic amino acids from one side of a membrane to the other. Aromatic
+    amino acids have an aromatic ring.
+Synonym: hydroxy/aromatic amino acid permease activity
+Synonym: valine/tyrosine/tryptophan permease activity
+Synonym: aromatic amino acid transporter activity
+-----------------------------------------
+GOID: GO:0001618
+Term: virus receptor activity
+Ontology: MF
+Definition: Combining with a virus component and mediating entry of the virus into the cell.
+Synonym: viral receptor activity
+-----------------------------------------
+GOID: GO:0140272
+Term: exogenous protein binding
+Ontology: MF
+Definition: NA
+-----------------------------------------
+GOID: GO:0003985
+Term: acetyl-CoA C-acetyltransferase activity
+Ontology: MF
+Definition: Catalysis of the reaction: 2 acetyl-CoA = CoA + acetoacetyl-CoA.
+Synonym: 3-oxothiolase activity
+Synonym: acetoacetyl-CoA thiolase activity
+Synonym: acetyl coenzyme A thiolase activity
+Synonym: acetyl-CoA acetyltransferase activity
+Synonym: acetyl-CoA:acetyl-CoA C-acetyltransferase activity
+Synonym: acetyl-CoA:N-acetyltransferase activity
+Synonym: beta-acetoacetyl coenzyme A thiolase activity
+Synonym: thiolase II
+Synonym: 2-methylacetoacetyl-CoA thiolase
+-----------------------------------------
+GOID: GO:0044877
+Term: protein-containing complex binding
+Ontology: MF
+Definition: Binding to a macromolecular complex.
+Synonym: GO:0032403
+Synonym: protein complex binding
+Synonym: macromolecular complex binding
+Secondary: GO:0032403
+-----------------------------------------
+GOID: GO:0019955
+Term: cytokine binding
+Ontology: MF
+Definition: Binding to a cytokine, any of a group of proteins that function to control the survival, growth
+    and differentiation of tissues and cells, and which have autocrine and paracrine activity.
+Synonym: GO:0019965
+Synonym: IL binding
+Synonym: interleukin binding
+Secondary: GO:0019965
+-----------------------------------------
+GOID: GO:0015075
+Term: ion transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of an ion from one side of a membrane to the other.
+Synonym: ion transporter activity
+-----------------------------------------
+GOID: GO:0004896
+Term: cytokine receptor activity
+Ontology: MF
+Definition: Combining with a cytokine and transmitting the signal from one side of the membrane to the
+    other to initiate a change in cell activity.
+Synonym: GO:0004907
+Synonym: hematopoietin/interferon-class (D200-domain) cytokine receptor activity
+Synonym: IL receptor
+Synonym: interleukin receptor activity
+Secondary: GO:0004907
+-----------------------------------------
+GOID: GO:0019838
+Term: growth factor binding
+Ontology: MF
+Definition: Binding to a growth factor, proteins or polypeptides that stimulate a cell or organism to grow
+    or proliferate.
+Synonym: neurotrophin TRK receptor activity
+-----------------------------------------
+GOID: GO:0008514
+Term: organic anion transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of organic anions from one side of a membrane to the other. Organic anions
+    are atoms or small molecules with a negative charge which contain carbon in covalent linkage.
+-----------------------------------------
+GOID: GO:0000146
+Term: microfilament motor activity
+Ontology: MF
+Definition: A motor activity that generates movement along a microfilament, driven by ATP hydrolysis.
+Synonym: GO:0030898
+Synonym: actin filament motor activity
+Synonym: actin-activated ATPase activity
+Synonym: actin-dependent ATPase activity
+Synonym: actin-filament motor activity
+Synonym: myosin ATPase activity
+Synonym: muscle motor activity
+Secondary: GO:0030898
+-----------------------------------------
+GOID: GO:0046983
+Term: protein dimerization activity
+Ontology: MF
+Definition: The formation of a protein dimer, a macromolecular structure consists of two noncovalently
+    associated identical or nonidentical subunits.
+-----------------------------------------
+GOID: GO:0016453
+Term: C-acetyltransferase activity
+Ontology: MF
+Definition: Catalysis of the transfer of an acetyl group to a carbon atom on the acceptor molecule.
+-----------------------------------------
+GOID: GO:0003988
+Term: acetyl-CoA C-acyltransferase activity
+Ontology: MF
+Definition: Catalysis of the reaction: acyl-CoA + acetyl-CoA = CoA + 3-oxoacyl-CoA.
+Synonym: 2-keto-acyl thiolase activity
+Synonym: 3-ketoacyl coenzyme A thiolase activity
+Synonym: 3-ketoacyl thiolase activity
+Synonym: 3-ketoacyl-CoA thiolase activity
+Synonym: 3-ketothiolase activity
+Synonym: 3-oxoacyl-CoA thiolase activity
+Synonym: 3-oxoacyl-coenzyme A thiolase activity
+Synonym: 6-oxoacyl-CoA thiolase activity
+Synonym: acetoacetyl-CoA beta-ketothiolase activity
+Synonym: acetyl-CoA acyltransferase activity
+Synonym: beta-ketoacyl coenzyme A thiolase activity
+Synonym: beta-ketoadipyl coenzyme A thiolase activity
+Synonym: beta-ketothiolase activity
+Synonym: ketoacyl-CoA acyltransferase activity
+Synonym: ketoacyl-coenzyme A thiolase activity
+Synonym: long-chain 3-oxoacyl-CoA thiolase activity
+Synonym: oxoacyl-coenzyme A thiolase activity
+Synonym: pro-3-ketoacyl-CoA thiolase activity
+Synonym: 3-ketoacyl CoA thiolase activity
+Synonym: acyl-CoA:acetyl-CoA C-acyltransferase activity
+Synonym: KAT
+Synonym: thiolase I
+Synonym: 2-methylacetoacetyl-CoA thiolase
+Synonym: beta-ketoacyl-CoA thiolase activity
+Synonym: beta-ketoadipyl-CoA thiolase activity
+-----------------------------------------
+GOID: GO:0008484
+Term: sulfuric ester hydrolase activity
+Ontology: MF
+Definition: Catalysis of the reaction: RSO-R' + H2O = RSOOH + R'H. This reaction is the hydrolysis of a
+    sulfuric ester bond, an ester formed from sulfuric acid, O=SO(OH)2.
+Synonym: sulfatase activity
+Synonym: sulphuric ester hydrolase activity
+-----------------------------------------
+GOID: GO:0005161
+Term: platelet-derived growth factor receptor binding
+Ontology: MF
+Definition: Binding to a platelet-derived growth factor receptor.
+Synonym: PDGF receptor binding
+Synonym: PDGFR binding
+Synonym: PDGF
+Synonym: platelet-derived growth factor
+Synonym: platelet-derived growth factor receptor ligand
+-----------------------------------------
+GOID: GO:0031492
+Term: nucleosomal DNA binding
+Ontology: MF
+Definition: Binding to the DNA portion of a nucleosome.
+-----------------------------------------
+GOID: GO:0051015
+Term: actin filament binding
+Ontology: MF
+Definition: Binding to an actin filament, also known as F-actin, a helical filamentous polymer of globular
+    G-actin subunits.
+Synonym: F-actin binding
+Synonym: actin cross-linking activity
+-----------------------------------------
+GOID: GO:0005178
+Term: integrin binding
+Ontology: MF
+Definition: Binding to an integrin.
+Synonym: integrin ligand
+-----------------------------------------
+GOID: GO:0098631
+Term: cell adhesion mediator activity
+Ontology: MF
+Definition: The binding by a cell-adhesion protein on a cell surface to an adhesion molecule on another
+    cell surface or an external substrate, to mediate adhesion of the cell to the external substrate or to
+    another cell.
+Synonym: cell adhesion molecule
+Synonym: protein binding involved in cell adhesion
+-----------------------------------------
+GOID: GO:0015190
+Term: L-leucine transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of L-leucine from one side of a membrane to the other. L-leucine is
+    2-amino-4-methylpentanoic acid.
+Synonym: L-leucine transporter activity
+Synonym: leucine/isoleucine/valine porter activity
+Synonym: leucine/valine/isoleucine permease activity
+-----------------------------------------
+GOID: GO:0019904
+Term: protein domain specific binding
+Ontology: MF
+Definition: Binding to a specific domain of a protein.
+Synonym: protein domain-specific binding
+-----------------------------------------
+GOID: GO:0005516
+Term: calmodulin binding
+Ontology: MF
+Definition: Binding to calmodulin, a calcium-binding protein with many roles, both in the calcium-bound and
+    calcium-free states.
+-----------------------------------------
+GOID: GO:0015194
+Term: L-serine transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of L-serine from one side of a membrane to the other. L-serine is the
+    L-enantiomer of 2-amino-3-hydroxypropanoic acid.
+Synonym: GO:0015511
+Synonym: GO:1905361
+Synonym: L-serine permease activity
+Synonym: threonine/serine:sodium symporter activity
+Synonym: L-serine transporter activity
+Synonym: serine transporter activity
+Secondary: GO:0015511
+Secondary: GO:1905361
+-----------------------------------------
+GOID: GO:0005215
+Term: transporter activity
+Ontology: MF
+Definition: Enables the directed movement of substances (such as macromolecules, small molecules, ions)
+    into, out of or within a cell, or between cells.
+Synonym: GO:0005478
+Synonym: carrier
+Secondary: GO:0005478
+-----------------------------------------
+GOID: GO:0003846
+Term: 2-acylglycerol O-acyltransferase activity
+Ontology: MF
+Definition: Catalysis of the reaction: acyl-CoA + 2-acylglycerol = CoA + diacylglycerol.
+Synonym: acyl coenzyme A-monoglyceride acyltransferase activity
+Synonym: acyl-CoA:2-acylglycerol O-acyltransferase activity
+Synonym: acylglycerol palmitoyltransferase activity
+Synonym: monoacylglycerol acyltransferase activity
+Synonym: monoglyceride acyltransferase activity
+-----------------------------------------
+GOID: GO:0008237
+Term: metallopeptidase activity
+Ontology: MF
+Definition: Catalysis of the hydrolysis of peptide bonds by a mechanism in which water acts as a
+    nucleophile, one or two metal ions hold the water molecule in place, and charged amino acid side chains
+    are ligands for the metal ions.
+Synonym: metalloprotease activity
+Synonym: metalloproteinase activity
+-----------------------------------------
+GOID: GO:0051010
+Term: microtubule plus-end binding
+Ontology: MF
+Definition: Binding to the plus end of a microtubule.
+-----------------------------------------
+GOID: GO:0022857
+Term: transmembrane transporter activity
+Ontology: MF
+Definition: Enables the transfer of a substance, usually a specific substance or a group of related
+    substances, from one side of a membrane to the other.
+Synonym: GO:0005386
+Synonym: GO:0015563
+Synonym: GO:0015646
+Synonym: GO:0022891
+Synonym: GO:0022892
+Synonym: substrate-specific transmembrane transporter activity
+Synonym: substrate-specific transporter activity
+Synonym: uptake permease activity
+Synonym: uptake transmembrane transporter activity
+Secondary: GO:0005386
+Secondary: GO:0015563
+Secondary: GO:0015646
+Secondary: GO:0022891
+Secondary: GO:0022892
+-----------------------------------------
+GOID: GO:0071813
+Term: lipoprotein particle binding
+Ontology: MF
+Definition: Binding to a lipoprotein particle. A lipoprotein particle, also known as a lipoprotein, is a
+    clathrate complex consisting of a lipid enwrapped in a protein host without covalent binding in such a
+    way that the complex has a hydrophilic outer surface consisting of all the protein and the polar ends
+    of any phospholipids.
+Synonym: plasma lipoprotein particle binding
+Synonym: lipoprotein binding
+Synonym: plasma lipoprotein binding
+-----------------------------------------
+GOID: GO:0071814
+Term: protein-lipid complex binding
+Ontology: MF
+Definition: Binding to a protein-lipid complex, any macromolecular complex that contains both protein and
+    lipid molecules.
+-----------------------------------------
+GOID: GO:1904929
+Term: coreceptor activity involved in Wnt signaling pathway, planar cell polarity pathway
+Ontology: MF
+Definition: NA
+Synonym: coreceptor activity involved in PCP pathway
+Synonym: coreceptor activity involved in planar cell polarity pathway
+Synonym: coreceptor activity involved in Wnt receptor signaling pathway, planar cell polarity pathway
+Synonym: coreceptor activity involved in Wnt receptor signalling pathway, planar cell polarity pathway
+Synonym: coreceptor activity involved in Wnt-activated signaling pathway, planar cell polarity pathway
+Synonym: Wnt/PCP co-receptor activity
+Synonym: coreceptor activity involved in non-canonical Wnt signaling pathway
+Synonym: coreceptor activity involved in Wnt-JNK signaling pathway
+Synonym: coreceptor activity involved in Wnt-PCP signaling pathway
+Synonym: coreceptor, insoluble ligand activity involved in non-canonical Wnt signaling pathway
+Synonym: coreceptor, insoluble ligand activity involved in PCP pathway
+Synonym: coreceptor, insoluble ligand activity involved in planar cell polarity pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt receptor signaling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt receptor signalling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt signaling pathway, planar cell polarity
+    pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt-activated signaling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt-JNK signaling pathway
+Synonym: coreceptor, insoluble ligand activity involved in Wnt-PCP signaling pathway
+Synonym: coreceptor, soluble ligand activity involved in non-canonical Wnt signaling pathway
+Synonym: coreceptor, soluble ligand activity involved in PCP pathway
+Synonym: coreceptor, soluble ligand activity involved in planar cell polarity pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt receptor signaling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt receptor signalling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt signaling pathway, planar cell polarity
+    pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt-activated signaling pathway, planar cell
+    polarity pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt-JNK signaling pathway
+Synonym: coreceptor, soluble ligand activity involved in Wnt-PCP signaling pathway
+Synonym: Wnt co-receptor activity, non-canonical signaling
+Synonym: Wnt co-receptor, non-canonical pathway
+-----------------------------------------
