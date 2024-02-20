@@ -48,3 +48,6 @@ resLFC <- lfcShrink(dds,
 
 resOrdered <- res[order(res$pvalue),]
 summary(res)
+
+#Create file to get fC data to local laptop
+write.csv(fC$counts, file = "fC_counts")
