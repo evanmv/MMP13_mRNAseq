@@ -1,3 +1,130 @@
+GOID: GO:0043230
+Term: extracellular organelle
+Ontology: CC
+Definition: Organized structure of distinctive morphology and
+    function, occurring outside the cell. Includes, for example,
+    extracellular membrane vesicles (EMVs) and the cellulosomes
+    of anaerobic bacteria and fungi.
+-----------------------------------------
+GOID: GO:0065010
+Term: extracellular membrane-bounded organelle
+Ontology: CC
+Definition: Organized structure of distinctive morphology and
+    function, bounded by a lipid bilayer membrane and occurring
+    outside the cell.
+Synonym: extracellular membrane-enclosed organelle
+-----------------------------------------
+GOID: GO:1903561
+Term: extracellular vesicle
+Ontology: CC
+Definition: NA
+Synonym: microparticle
+-----------------------------------------
+GOID: GO:0070062
+Term: extracellular exosome
+Ontology: CC
+Definition: A vesicle that is released into the extracellular
+    region by fusion of the limiting endosomal membrane of a
+    multivesicular body with the plasma membrane. Extracellular
+    exosomes, also simply called exosomes, have a diameter of
+    about 40-100 nm.
+Synonym: exosome
+Synonym: extracellular vesicular exosome
+-----------------------------------------
+GOID: GO:0005615
+Term: extracellular space
+Ontology: CC
+Definition: That part of a multicellular organism outside the
+    cells proper, usually taken to be outside the plasma
+    membranes, and occupied by fluid.
+Synonym: intercellular space
+-----------------------------------------
+GOID: GO:0005576
+Term: extracellular region
+Ontology: CC
+Definition: The space external to the outermost structure of a
+    cell. For cells without external protective or external
+    encapsulating structures this refers to space outside of the
+    plasma membrane. This term covers the host cell environment
+    outside an intracellular parasite.
+Synonym: extracellular
+-----------------------------------------
+GOID: GO:0031982
+Term: vesicle
+Ontology: CC
+Definition: Any small, fluid-filled, spherical organelle enclosed
+    by membrane.
+Synonym: GO:0031988
+Synonym: membrane-bounded vesicle
+Synonym: membrane-enclosed vesicle
+Secondary: GO:0031988
+-----------------------------------------
+GOID: GO:0012505
+Term: endomembrane system
+Ontology: CC
+Definition: A collection of membranous structures involved in
+    transport within the cell. The main components of the
+    endomembrane system are endoplasmic reticulum, Golgi bodies,
+    vesicles, cell membrane and nuclear envelope. Members of the
+    endomembrane system pass materials through each other or
+    though the use of vesicles.
+-----------------------------------------
+GOID: GO:0016020
+Term: membrane
+Ontology: CC
+Definition: A lipid bilayer along with all the proteins and
+    protein complexes embedded in it an attached to it.
+Synonym: GO:0098589
+Synonym: GO:0098805
+Synonym: membrane region
+Synonym: region of membrane
+Synonym: whole membrane
+Secondary: GO:0098589
+Secondary: GO:0098805
+-----------------------------------------
+GOID: GO:0032502
+Term: developmental process
+Ontology: BP
+Definition: A biological process whose specific outcome is the
+    progression of an integrated living unit: an anatomical
+    structure (which may be a subcellular structure, cell,
+    tissue, or organ), or organism over time from an initial
+    condition to a later condition.
+Synonym: GO:0044767
+Synonym: single-organism developmental process
+Synonym: development
+Secondary: GO:0044767
+-----------------------------------------
+GOID: GO:0048856
+Term: anatomical structure development
+Ontology: BP
+Definition: The biological process whose specific outcome is the
+    progression of an anatomical structure from an initial
+    condition to its mature state. This process begins with the
+    formation of the structure and ends with the mature
+    structure, whatever form that may be including its natural
+    destruction. An anatomical structure is any biological entity
+    that occupies space and is distinguished from its
+    surroundings. Anatomical structures can be macroscopic such
+    as a carpel, or microscopic such as an acrosome.
+Synonym: development of an anatomical structure
+-----------------------------------------
+GOID: GO:0031224
+Term: intrinsic component of membrane
+Ontology: CC
+Definition: The component of a membrane consisting of the gene
+    products having some covalently attached portion, for example
+    part of a peptide sequence or some other covalently attached
+    group such as a GPI anchor, which spans or is embedded in one
+    or both leaflets of the membrane.
+Synonym: intrinsic to membrane
+-----------------------------------------
+GOID: GO:0071944
+Term: cell periphery
+Ontology: CC
+Definition: The part of a cell encompassing the cell cortex, the
+    plasma membrane, and any external encapsulating structures.
+-----------------------------------------
 GOID: GO:0050839
 Term: cell adhesion molecule binding
 Ontology: MF
@@ -7,431 +134,811 @@ Synonym: adhesive extracellular matrix constituent
 Synonym: cell adhesion molecule activity
 Synonym: cell adhesion receptor activity
 -----------------------------------------
+GOID: GO:0005737
+Term: cytoplasm
+Ontology: CC
+Definition: The contents of a cell excluding the plasma membrane
+    and nucleus, but including other subcellular structures.
+-----------------------------------------
+GOID: GO:0016021
+Term: integral component of membrane
+Ontology: CC
+Definition: The component of a membrane consisting of the gene
+    products and protein complexes having at least some part of
+    their peptide sequence embedded in the hydrophobic region of
+    the membrane.
+Synonym: transmembrane
+Synonym: integral to membrane
+-----------------------------------------
+GOID: GO:0030154
+Term: cell differentiation
+Ontology: BP
+Definition: The process in which relatively unspecialized cells,
+    e.g. embryonic or regenerative cells, acquire specialized
+    structural and/or functional features that characterize the
+    cells, tissues, or organs of the mature organism or some
+    other relatively stable phase of the organism's life history.
+    Differentiation includes the processes involved in commitment
+    of a cell to a specific fate and its subsequent development
+    to the mature state.
+-----------------------------------------
+GOID: GO:0032501
+Term: multicellular organismal process
+Ontology: BP
+Definition: Any biological process, occurring at the level of a
+    multicellular organism, pertinent to its function.
+Synonym: GO:0044707
+Synonym: GO:0050874
+Synonym: organismal physiological process
+Synonym: single-multicellular organism process
+Secondary: GO:0044707
+Secondary: GO:0050874
+-----------------------------------------
+GOID: GO:0007275
+Term: multicellular organism development
+Ontology: BP
+Definition: The biological process whose specific outcome is the
+    progression of a multicellular organism over time from an
+    initial condition (e.g. a zygote or a young adult) to a later
+    condition (e.g. a multicellular animal or an aged adult).
+-----------------------------------------
+GOID: GO:0005886
+Term: plasma membrane
+Ontology: CC
+Definition: The membrane surrounding a cell that separates the
+    cell from its external environment. It consists of a
+    phospholipid bilayer and associated proteins.
+Synonym: GO:0005904
+Synonym: cell membrane
+Synonym: cellular membrane
+Synonym: cytoplasmic membrane
+Synonym: plasmalemma
+Synonym: juxtamembrane
+Synonym: bacterial inner membrane
+Synonym: inner endospore membrane
+Synonym: plasma membrane lipid bilayer
+Secondary: GO:0005904
+-----------------------------------------
+GOID: GO:0009986
+Term: cell surface
+Ontology: CC
+Definition: The external part of the cell wall and/or plasma
+    membrane.
+Synonym: GO:0009928
+Synonym: GO:0009929
+Synonym: cell associated
+Synonym: cell bound
+Secondary: GO:0009928
+Secondary: GO:0009929
+-----------------------------------------
+GOID: GO:0048869
+Term: cellular developmental process
+Ontology: BP
+Definition: A biological process whose specific outcome is the
+    progression of a cell over time from an initial condition to
+    a later condition.
+-----------------------------------------
+GOID: GO:0009888
+Term: tissue development
+Ontology: BP
+Definition: The process whose specific outcome is the progression
+    of a tissue over time, from its formation to the mature
+    structure.
+Synonym: histogenesis
+Synonym: histogenesis and organogenesis
+-----------------------------------------
+GOID: GO:0005783
+Term: endoplasmic reticulum
+Ontology: CC
+Definition: The irregular network of unit membranes, visible only
+    by electron microscopy, that occurs in the cytoplasm of many
+    eukaryotic cells. The membranes form a complex meshwork of
+    tubular channels, which are often expanded into slitlike
+    cavities called cisternae. The ER takes two forms, rough (or
+    granular), with ribosomes adhering to the outer surface, and
+    smooth (with no ribosomes attached).
+Synonym: ER
+-----------------------------------------
+GOID: GO:0051179
+Term: localization
+Ontology: BP
+Definition: Any process in which a cell, a substance, or a
+    cellular entity, such as a protein complex or organelle, is
+    transported, tethered to or otherwise maintained in a
+    specific location. In the case of substances, localization
+    may also be achieved via selective degradation.
+Synonym: GO:1902578
+Synonym: establishment and maintenance of localization
+Synonym: establishment and maintenance of position
+Synonym: localisation
+Synonym: single organism localization
+Synonym: single-organism localization
+Synonym: establishment and maintenance of cellular component
+    location
+Synonym: establishment and maintenance of substance location
+Synonym: establishment and maintenance of substrate location
+Secondary: GO:1902578
+-----------------------------------------
+GOID: GO:0005788
+Term: endoplasmic reticulum lumen
+Ontology: CC
+Definition: The volume enclosed by the membranes of the
+    endoplasmic reticulum.
+Synonym: GO:0016022
+Synonym: cisternal lumen
+Synonym: endoplasmic reticulum cisterna
+Synonym: ER cisterna
+Synonym: ER lumen
+Secondary: GO:0016022
+-----------------------------------------
+GOID: GO:0031226
+Term: intrinsic component of plasma membrane
+Ontology: CC
+Definition: The component of the plasma membrane consisting of
+    the gene products and protein complexes having either part of
+    their peptide sequence embedded in the hydrophobic region of
+    the membrane or some other covalently attached group such as
+    a GPI anchor that is similarly embedded in the membrane.
+Synonym: intrinsic to plasma membrane
+-----------------------------------------
+GOID: GO:0009653
+Term: anatomical structure morphogenesis
+Ontology: BP
+Definition: The process in which anatomical structures are
+    generated and organized. Morphogenesis pertains to the
+    creation of form.
+Synonym: anatomical structure organization
+Synonym: morphogenesis
+Synonym: embryogenesis and morphogenesis
+-----------------------------------------
+GOID: GO:0042221
+Term: response to chemical
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell or an organism (in terms of movement,
+    secretion, enzyme production, gene expression, etc.) as a
+    result of a chemical stimulus.
+Synonym: response to chemical stimulus
+Synonym: response to chemical substance
+-----------------------------------------
+GOID: GO:0098588
+Term: bounding membrane of organelle
+Ontology: CC
+Definition: The lipid bilayer that forms the outer-most layer of
+    an organelle.
+-----------------------------------------
+GOID: GO:0005925
+Term: focal adhesion
+Ontology: CC
+Definition: A cell-substrate junction that anchors the cell to
+    the extracellular matrix and that forms a point of
+    termination of actin filaments. In insects focal adhesion has
+    also been referred to as hemi-adherens junction (HAJ).
+Synonym: GO:0005926
+Synonym: GO:0008357
+Synonym: connecting hemi-adherens junction
+Synonym: focal contact
+Synonym: HAJ
+Synonym: hemi-adherens junction
+Synonym: adhesion plaque
+Secondary: GO:0005926
+Secondary: GO:0008357
+-----------------------------------------
+GOID: GO:0009897
+Term: external side of plasma membrane
+Ontology: CC
+Definition: The leaflet of the plasma membrane that faces away
+    from the cytoplasm and any proteins embedded or anchored in
+    it or attached to its surface.
+Synonym: external leaflet of plasma membrane
+Synonym: outer surface of cytoplasmic membrane
+Synonym: juxtamembrane
+-----------------------------------------
+GOID: GO:0060429
+Term: epithelium development
+Ontology: BP
+Definition: The process whose specific outcome is the progression
+    of an epithelium over time, from its formation to the mature
+    structure. An epithelium is a tissue that covers the internal
+    or external surfaces of an anatomical structure.
+-----------------------------------------
+GOID: GO:0005887
+Term: integral component of plasma membrane
+Ontology: CC
+Definition: The component of the plasma membrane consisting of
+    the gene products and protein complexes having at least some
+    part of their peptide sequence embedded in the hydrophobic
+    region of the membrane.
+Synonym: integral to plasma membrane
+-----------------------------------------
+GOID: GO:0030055
+Term: cell-substrate junction
+Ontology: CC
+Definition: A cell junction that forms a connection between a
+    cell and the extracellular matrix.
+Synonym: cell-matrix junction
+-----------------------------------------
+GOID: GO:0070161
+Term: anchoring junction
+Ontology: CC
+Definition: A cell junction that mechanically attaches a cell
+    (and its cytoskeleton) to neighboring cells or to the
+    extracellular matrix.
+Synonym: anchoring cell junction
+-----------------------------------------
+GOID: GO:0005789
+Term: endoplasmic reticulum membrane
+Ontology: CC
+Definition: The lipid bilayer surrounding the endoplasmic
+    reticulum.
+Synonym: ER membrane
+-----------------------------------------
+GOID: GO:0007155
+Term: cell adhesion
+Ontology: BP
+Definition: The attachment of a cell, either to another cell or
+    to an underlying substrate such as the extracellular matrix,
+    via cell adhesion molecules.
+Synonym: GO:0098602
+Synonym: cell adhesion molecule activity
+Synonym: single organism cell adhesion
+Secondary: GO:0098602
+-----------------------------------------
+GOID: GO:0098827
+Term: endoplasmic reticulum subcompartment
+Ontology: CC
+Definition: A distinct region of the endoplasmic reticulum.
+-----------------------------------------
+GOID: GO:0016477
+Term: cell migration
+Ontology: BP
+Definition: The controlled self-propelled movement of a cell from
+    one site to a destination guided by molecular cues. Cell
+    migration is a central process in the development and
+    maintenance of multicellular organisms.
+-----------------------------------------
+GOID: GO:0048731
+Term: system development
+Ontology: BP
+Definition: The process whose specific outcome is the progression
+    of an organismal system over time, from its formation to the
+    mature structure. A system is a regularly interacting or
+    interdependent group of organs or tissues that work together
+    to carry out a given biological process.
+-----------------------------------------
+GOID: GO:0098552
+Term: side of membrane
+Ontology: CC
+Definition: A cellular component consisting of one leaflet of a
+    membrane bilayer and any proteins embedded or anchored in it
+    or attached to its surface.
+-----------------------------------------
+GOID: GO:0031410
+Term: cytoplasmic vesicle
+Ontology: CC
+Definition: A vesicle found in the cytoplasm of a cell.
+Synonym: GO:0016023
+Synonym: cytoplasmic membrane bounded vesicle
+Synonym: cytoplasmic membrane-enclosed vesicle
+Synonym: cytoplasmic, membrane-bounded vesicle
+Secondary: GO:0016023
+-----------------------------------------
+GOID: GO:0042175
+Term: nuclear outer membrane-endoplasmic reticulum membrane
+    network
+Ontology: CC
+Definition: The continuous network of membranes encompassing the
+    nuclear outer membrane and the endoplasmic reticulum
+    membrane.
+Synonym: nuclear membrane-endoplasmic reticulum continuum
+Synonym: nuclear membrane-ER network
+Synonym: NE-ER continuum
+Synonym: NE-ER network
+Synonym: nuclear envelope-endoplasmic reticulum continuum
+Synonym: nuclear envelope-endoplasmic reticulum network
+Synonym: nuclear envelope-ER network
+-----------------------------------------
+GOID: GO:0070887
+Term: cellular response to chemical stimulus
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell (in terms of movement, secretion, enzyme
+    production, gene expression, etc.) as a result of a chemical
+    stimulus.
+-----------------------------------------
+GOID: GO:0097708
+Term: intracellular vesicle
+Ontology: CC
+Definition: Any vesicle that is part of the intracellular region.
+-----------------------------------------
+GOID: GO:0042060
+Term: wound healing
+Ontology: BP
+Definition: The series of events that restore integrity to a
+    damaged tissue, following an injury.
+-----------------------------------------
+GOID: GO:0051234
+Term: establishment of localization
+Ontology: BP
+Definition: Any process that localizes a substance or cellular
+    component. This may occur via movement, tethering or
+    selective degradation.
+Synonym: establishment of localisation
+-----------------------------------------
 GOID: GO:0045296
 Term: cadherin binding
 Ontology: MF
-Definition: Binding to cadherin, a type I membrane protein involved in cell adhesion.
+Definition: Binding to cadherin, a type I membrane protein
+    involved in cell adhesion.
 -----------------------------------------
-GOID: GO:0015179
-Term: L-amino acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of an L-amino acid from one side of a membrane to the other. L-amino acids
-    are the L-enantiomers of amino acids.
-Synonym: L-amino acid transporter activity
+GOID: GO:0048870
+Term: cell motility
+Ontology: BP
+Definition: Any process involved in the controlled self-propelled
+    movement of a cell that results in translocation of the cell
+    from one place to another.
+Synonym: cell locomotion
+Synonym: movement of a cell
+Synonym: cell movement
 -----------------------------------------
-GOID: GO:0015171
-Term: amino acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of amino acids from one side of a membrane to the other. Amino acids are
-    organic molecules that contain an amino group and a carboxyl group.
-Synonym: GO:0015359
-Synonym: amino acid permease activity
-Synonym: general amino acid permease activity
-Synonym: hydroxy/aromatic amino acid permease activity
-Synonym: amino acid transporter activity
-Synonym: amino acid/choline transmembrane transporter activity
-Secondary: GO:0015359
+GOID: GO:0006810
+Term: transport
+Ontology: BP
+Definition: The directed movement of substances (such as
+    macromolecules, small molecules, ions) or cellular components
+    (such as complexes and organelles) into, out of or within a
+    cell, or between cells, or within a multicellular organism by
+    means of some agent such as a transporter or a transporter
+    complex, a pore or a motor protein.
+Synonym: GO:0015457
+Synonym: GO:0015460
+Synonym: GO:0044765
+Synonym: single-organism transport
+Secondary: GO:0015457
+Secondary: GO:0015460
+Secondary: GO:0044765
 -----------------------------------------
-GOID: GO:0072349
-Term: modified amino acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of modified amino acids from one side of a membrane to the other.
-Synonym: amino acid derivative transmembrane transporter activity
-Synonym: modified amino acid transporter activity
+GOID: GO:0000323
+Term: lytic vacuole
+Ontology: CC
+Definition: A vacuole that is maintained at an acidic pH and
+    which contains degradative enzymes, including a wide variety
+    of acid hydrolases.
 -----------------------------------------
-GOID: GO:0008509
-Term: anion transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of a negatively charged ion from one side of a membrane to the other.
-Synonym: anion transporter activity
+GOID: GO:0005764
+Term: lysosome
+Ontology: CC
+Definition: A small lytic vacuole that has cell cycle-independent
+    morphology found in most animal cells and that contains a
+    variety of hydrolases, most of which have their maximal
+    activities in the pH range 5-6. The contained enzymes display
+    latency if properly isolated. About 40 different lysosomal
+    hydrolases are known and lysosomes have a great variety of
+    morphologies and functions.
 -----------------------------------------
-GOID: GO:0005509
-Term: calcium ion binding
-Ontology: MF
-Definition: Binding to a calcium ion (Ca2+).
-Synonym: calcium ion storage activity
+GOID: GO:0005794
+Term: Golgi apparatus
+Ontology: CC
+Definition: A membrane-bound cytoplasmic organelle of the
+    endomembrane system that further processes the core
+    oligosaccharides (e.g. N-glycans) added to proteins in the
+    endoplasmic reticulum and packages them into membrane-bound
+    vesicles. The Golgi apparatus operates at the intersection of
+    the secretory, lysosomal, and endocytic pathways.
+Synonym: Golgi complex
+Synonym: Golgi
+Synonym: Golgi ribbon
 -----------------------------------------
-GOID: GO:0005515
-Term: protein binding
-Ontology: MF
-Definition: Binding to a protein.
-Synonym: GO:0001948
-Synonym: GO:0045308
-Synonym: protein amino acid binding
-Synonym: glycoprotein binding
-Secondary: GO:0001948
-Secondary: GO:0045308
+GOID: GO:0071310
+Term: cellular response to organic substance
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell (in terms of movement, secretion, enzyme
+    production, gene expression, etc.) as a result of an organic
+    substance stimulus.
 -----------------------------------------
-GOID: GO:0003779
-Term: actin binding
-Ontology: MF
-Definition: Binding to monomeric or multimeric forms of actin, including actin filaments.
-Synonym: membrane associated actin binding
+GOID: GO:0005773
+Term: vacuole
+Ontology: CC
+Definition: A closed structure, found only in eukaryotic cells,
+    that is completely surrounded by unit membrane and contains
+    liquid material. Cells contain one or several vacuoles, that
+    may have different functions from each other. Vacuoles have a
+    diverse array of functions. They can act as a storage
+    organelle for nutrients or waste products, as a degradative
+    compartment, as a cost-effective way of increasing cell size,
+    and as a homeostatic regulator controlling both turgor
+    pressure and pH of the cytosol.
+Synonym: vacuolar carboxypeptidase Y
 -----------------------------------------
-GOID: GO:0015175
-Term: neutral amino acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of neutral amino acids from one side of a membrane to the other. Neutral
-    amino acids have side chains with no charge at pH 7.3.
-Synonym: neutral amino acid transporter activity
+GOID: GO:0031090
+Term: organelle membrane
+Ontology: CC
+Definition: A membrane that is one of the two lipid bilayers of
+    an organelle envelope or the outermost membrane of single
+    membrane bound organelle.
+Synonym: intracellular membrane
 -----------------------------------------
-GOID: GO:0005342
-Term: organic acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of organic acids from one side of a membrane to the other. Organic acids
-    are acidic compound containing carbon in covalent linkage.
+GOID: GO:0031984
+Term: organelle subcompartment
+Ontology: CC
+Definition: A compartment that consists of a lumen and an
+    enclosing membrane, and is part of an organelle.
+Synonym: suborganelle compartment
 -----------------------------------------
-GOID: GO:0046943
-Term: carboxylic acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of carboxylic acids from one side of a membrane to the other. Carboxylic
-    acids are organic acids containing one or more carboxyl (COOH) groups or anions (COO-).
+GOID: GO:0015849
+Term: organic acid transport
+Ontology: BP
+Definition: The directed movement of organic acids, any acidic
+    compound containing carbon in covalent linkage, into, out of
+    or within a cell, or between cells, by means of some agent
+    such as a transporter or pore.
 -----------------------------------------
-GOID: GO:0008092
-Term: cytoskeletal protein binding
-Ontology: MF
-Definition: Binding to a protein component of a cytoskeleton (actin, microtubule, or intermediate filament
-    cytoskeleton).
+GOID: GO:0009611
+Term: response to wounding
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell or an organism (in terms of movement,
+    secretion, enzyme production, gene expression, etc.) as a
+    result of a stimulus indicating damage to the organism.
+Synonym: GO:0002245
+Synonym: physiological response to wounding
+Secondary: GO:0002245
 -----------------------------------------
-GOID: GO:0042802
-Term: identical protein binding
-Ontology: MF
-Definition: Binding to an identical protein or proteins.
-Synonym: isoform-specific homophilic binding
-Synonym: protein homopolymerization
+GOID: GO:0033036
+Term: macromolecule localization
+Ontology: BP
+Definition: Any process in which a macromolecule is transported
+    to, or maintained in, a specific location.
+Synonym: macromolecule localisation
 -----------------------------------------
-GOID: GO:0016408
-Term: C-acyltransferase activity
-Ontology: MF
-Definition: Catalysis of the transfer of an acyl group to a carbon atom on the acceptor molecule.
+GOID: GO:0048513
+Term: animal organ development
+Ontology: BP
+Definition: Development of a tissue or tissues that work together
+    to perform a specific function or functions. Development
+    pertains to the process whose specific outcome is the
+    progression of a structure over time, from its formation to
+    the mature structure. Organs are commonly observed as visibly
+    distinct structures, but may also exist as loosely associated
+    clusters of cells that work together to perform a specific
+    function or functions.
+Synonym: development of an organ
+Synonym: organogenesis
 -----------------------------------------
-GOID: GO:0015173
-Term: aromatic amino acid transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of aromatic amino acids from one side of a membrane to the other. Aromatic
-    amino acids have an aromatic ring.
-Synonym: hydroxy/aromatic amino acid permease activity
-Synonym: valine/tyrosine/tryptophan permease activity
-Synonym: aromatic amino acid transporter activity
+GOID: GO:0042581
+Term: specific granule
+Ontology: CC
+Definition: Granule with a membranous, tubular internal
+    structure, found primarily in mature neutrophil cells. Most
+    are released into the extracellular fluid. Specific granules
+    contain lactoferrin, lysozyme, vitamin B12 binding protein
+    and elastase.
+Synonym: secondary granule
 -----------------------------------------
-GOID: GO:0001618
-Term: virus receptor activity
-Ontology: MF
-Definition: Combining with a virus component and mediating entry of the virus into the cell.
-Synonym: viral receptor activity
+GOID: GO:0110165
+Term: cellular anatomical entity
+Ontology: CC
+Definition: A part of a cellular organism that is either an
+    immaterial entity or a material entity with granularity above
+    the level of a protein complex but below that of an
+    anatomical system. Or, a substance produced by a cellular
+    organism with granularity above the level of a protein
+    complex.
 -----------------------------------------
-GOID: GO:0140272
-Term: exogenous protein binding
-Ontology: MF
+GOID: GO:0010033
+Term: response to organic substance
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell or an organism (in terms of movement,
+    secretion, enzyme production, gene expression, etc.) as a
+    result of an organic substance stimulus.
+Synonym: GO:1990367
+Synonym: process resulting in tolerance to organic substance
+Secondary: GO:1990367
+-----------------------------------------
+GOID: GO:1903825
+Term: organic acid transmembrane transport
+Ontology: BP
 Definition: NA
 -----------------------------------------
-GOID: GO:0003985
-Term: acetyl-CoA C-acetyltransferase activity
-Ontology: MF
-Definition: Catalysis of the reaction: 2 acetyl-CoA = CoA + acetoacetyl-CoA.
-Synonym: 3-oxothiolase activity
-Synonym: acetoacetyl-CoA thiolase activity
-Synonym: acetyl coenzyme A thiolase activity
-Synonym: acetyl-CoA acetyltransferase activity
-Synonym: acetyl-CoA:acetyl-CoA C-acetyltransferase activity
-Synonym: acetyl-CoA:N-acetyltransferase activity
-Synonym: beta-acetoacetyl coenzyme A thiolase activity
-Synonym: thiolase II
-Synonym: 2-methylacetoacetyl-CoA thiolase
------------------------------------------
-GOID: GO:0044877
-Term: protein-containing complex binding
-Ontology: MF
-Definition: Binding to a macromolecular complex.
-Synonym: GO:0032403
-Synonym: protein complex binding
-Synonym: macromolecular complex binding
-Secondary: GO:0032403
------------------------------------------
-GOID: GO:0019955
-Term: cytokine binding
-Ontology: MF
-Definition: Binding to a cytokine, any of a group of proteins that function to control the survival, growth
-    and differentiation of tissues and cells, and which have autocrine and paracrine activity.
-Synonym: GO:0019965
-Synonym: IL binding
-Synonym: interleukin binding
-Secondary: GO:0019965
------------------------------------------
-GOID: GO:0015075
-Term: ion transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of an ion from one side of a membrane to the other.
-Synonym: ion transporter activity
------------------------------------------
-GOID: GO:0004896
-Term: cytokine receptor activity
-Ontology: MF
-Definition: Combining with a cytokine and transmitting the signal from one side of the membrane to the
-    other to initiate a change in cell activity.
-Synonym: GO:0004907
-Synonym: hematopoietin/interferon-class (D200-domain) cytokine receptor activity
-Synonym: IL receptor
-Synonym: interleukin receptor activity
-Secondary: GO:0004907
------------------------------------------
-GOID: GO:0019838
-Term: growth factor binding
-Ontology: MF
-Definition: Binding to a growth factor, proteins or polypeptides that stimulate a cell or organism to grow
-    or proliferate.
-Synonym: neurotrophin TRK receptor activity
------------------------------------------
-GOID: GO:0008514
-Term: organic anion transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of organic anions from one side of a membrane to the other. Organic anions
-    are atoms or small molecules with a negative charge which contain carbon in covalent linkage.
------------------------------------------
-GOID: GO:0000146
-Term: microfilament motor activity
-Ontology: MF
-Definition: A motor activity that generates movement along a microfilament, driven by ATP hydrolysis.
-Synonym: GO:0030898
-Synonym: actin filament motor activity
-Synonym: actin-activated ATPase activity
-Synonym: actin-dependent ATPase activity
-Synonym: actin-filament motor activity
-Synonym: myosin ATPase activity
-Synonym: muscle motor activity
-Secondary: GO:0030898
------------------------------------------
-GOID: GO:0046983
-Term: protein dimerization activity
-Ontology: MF
-Definition: The formation of a protein dimer, a macromolecular structure consists of two noncovalently
-    associated identical or nonidentical subunits.
------------------------------------------
-GOID: GO:0016453
-Term: C-acetyltransferase activity
-Ontology: MF
-Definition: Catalysis of the transfer of an acetyl group to a carbon atom on the acceptor molecule.
------------------------------------------
-GOID: GO:0003988
-Term: acetyl-CoA C-acyltransferase activity
-Ontology: MF
-Definition: Catalysis of the reaction: acyl-CoA + acetyl-CoA = CoA + 3-oxoacyl-CoA.
-Synonym: 2-keto-acyl thiolase activity
-Synonym: 3-ketoacyl coenzyme A thiolase activity
-Synonym: 3-ketoacyl thiolase activity
-Synonym: 3-ketoacyl-CoA thiolase activity
-Synonym: 3-ketothiolase activity
-Synonym: 3-oxoacyl-CoA thiolase activity
-Synonym: 3-oxoacyl-coenzyme A thiolase activity
-Synonym: 6-oxoacyl-CoA thiolase activity
-Synonym: acetoacetyl-CoA beta-ketothiolase activity
-Synonym: acetyl-CoA acyltransferase activity
-Synonym: beta-ketoacyl coenzyme A thiolase activity
-Synonym: beta-ketoadipyl coenzyme A thiolase activity
-Synonym: beta-ketothiolase activity
-Synonym: ketoacyl-CoA acyltransferase activity
-Synonym: ketoacyl-coenzyme A thiolase activity
-Synonym: long-chain 3-oxoacyl-CoA thiolase activity
-Synonym: oxoacyl-coenzyme A thiolase activity
-Synonym: pro-3-ketoacyl-CoA thiolase activity
-Synonym: 3-ketoacyl CoA thiolase activity
-Synonym: acyl-CoA:acetyl-CoA C-acyltransferase activity
-Synonym: KAT
-Synonym: thiolase I
-Synonym: 2-methylacetoacetyl-CoA thiolase
-Synonym: beta-ketoacyl-CoA thiolase activity
-Synonym: beta-ketoadipyl-CoA thiolase activity
------------------------------------------
-GOID: GO:0008484
-Term: sulfuric ester hydrolase activity
-Ontology: MF
-Definition: Catalysis of the reaction: RSO-R' + H2O = RSOOH + R'H. This reaction is the hydrolysis of a
-    sulfuric ester bond, an ester formed from sulfuric acid, O=SO(OH)2.
-Synonym: sulfatase activity
-Synonym: sulphuric ester hydrolase activity
------------------------------------------
-GOID: GO:0005161
-Term: platelet-derived growth factor receptor binding
-Ontology: MF
-Definition: Binding to a platelet-derived growth factor receptor.
-Synonym: PDGF receptor binding
-Synonym: PDGFR binding
-Synonym: PDGF
-Synonym: platelet-derived growth factor
-Synonym: platelet-derived growth factor receptor ligand
------------------------------------------
-GOID: GO:0031492
-Term: nucleosomal DNA binding
-Ontology: MF
-Definition: Binding to the DNA portion of a nucleosome.
------------------------------------------
-GOID: GO:0051015
-Term: actin filament binding
-Ontology: MF
-Definition: Binding to an actin filament, also known as F-actin, a helical filamentous polymer of globular
-    G-actin subunits.
-Synonym: F-actin binding
-Synonym: actin cross-linking activity
------------------------------------------
-GOID: GO:0005178
-Term: integrin binding
-Ontology: MF
-Definition: Binding to an integrin.
-Synonym: integrin ligand
------------------------------------------
-GOID: GO:0098631
-Term: cell adhesion mediator activity
-Ontology: MF
-Definition: The binding by a cell-adhesion protein on a cell surface to an adhesion molecule on another
-    cell surface or an external substrate, to mediate adhesion of the cell to the external substrate or to
-    another cell.
-Synonym: cell adhesion molecule
-Synonym: protein binding involved in cell adhesion
------------------------------------------
-GOID: GO:0015190
-Term: L-leucine transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of L-leucine from one side of a membrane to the other. L-leucine is
-    2-amino-4-methylpentanoic acid.
-Synonym: L-leucine transporter activity
-Synonym: leucine/isoleucine/valine porter activity
-Synonym: leucine/valine/isoleucine permease activity
------------------------------------------
-GOID: GO:0019904
-Term: protein domain specific binding
-Ontology: MF
-Definition: Binding to a specific domain of a protein.
-Synonym: protein domain-specific binding
------------------------------------------
-GOID: GO:0005516
-Term: calmodulin binding
-Ontology: MF
-Definition: Binding to calmodulin, a calcium-binding protein with many roles, both in the calcium-bound and
-    calcium-free states.
------------------------------------------
-GOID: GO:0015194
-Term: L-serine transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of L-serine from one side of a membrane to the other. L-serine is the
-    L-enantiomer of 2-amino-3-hydroxypropanoic acid.
-Synonym: GO:0015511
-Synonym: GO:1905361
-Synonym: L-serine permease activity
-Synonym: threonine/serine:sodium symporter activity
-Synonym: L-serine transporter activity
-Synonym: serine transporter activity
-Secondary: GO:0015511
-Secondary: GO:1905361
------------------------------------------
-GOID: GO:0005215
-Term: transporter activity
-Ontology: MF
-Definition: Enables the directed movement of substances (such as macromolecules, small molecules, ions)
-    into, out of or within a cell, or between cells.
-Synonym: GO:0005478
-Synonym: carrier
-Secondary: GO:0005478
------------------------------------------
-GOID: GO:0003846
-Term: 2-acylglycerol O-acyltransferase activity
-Ontology: MF
-Definition: Catalysis of the reaction: acyl-CoA + 2-acylglycerol = CoA + diacylglycerol.
-Synonym: acyl coenzyme A-monoglyceride acyltransferase activity
-Synonym: acyl-CoA:2-acylglycerol O-acyltransferase activity
-Synonym: acylglycerol palmitoyltransferase activity
-Synonym: monoacylglycerol acyltransferase activity
-Synonym: monoglyceride acyltransferase activity
------------------------------------------
-GOID: GO:0008237
-Term: metallopeptidase activity
-Ontology: MF
-Definition: Catalysis of the hydrolysis of peptide bonds by a mechanism in which water acts as a
-    nucleophile, one or two metal ions hold the water molecule in place, and charged amino acid side chains
-    are ligands for the metal ions.
-Synonym: metalloprotease activity
-Synonym: metalloproteinase activity
------------------------------------------
-GOID: GO:0051010
-Term: microtubule plus-end binding
-Ontology: MF
-Definition: Binding to the plus end of a microtubule.
------------------------------------------
-GOID: GO:0022857
-Term: transmembrane transporter activity
-Ontology: MF
-Definition: Enables the transfer of a substance, usually a specific substance or a group of related
-    substances, from one side of a membrane to the other.
-Synonym: GO:0005386
-Synonym: GO:0015563
-Synonym: GO:0015646
-Synonym: GO:0022891
-Synonym: GO:0022892
-Synonym: substrate-specific transmembrane transporter activity
-Synonym: substrate-specific transporter activity
-Synonym: uptake permease activity
-Synonym: uptake transmembrane transporter activity
-Secondary: GO:0005386
-Secondary: GO:0015563
-Secondary: GO:0015646
-Secondary: GO:0022891
-Secondary: GO:0022892
------------------------------------------
-GOID: GO:0071813
-Term: lipoprotein particle binding
-Ontology: MF
-Definition: Binding to a lipoprotein particle. A lipoprotein particle, also known as a lipoprotein, is a
-    clathrate complex consisting of a lipid enwrapped in a protein host without covalent binding in such a
-    way that the complex has a hydrophilic outer surface consisting of all the protein and the polar ends
-    of any phospholipids.
-Synonym: plasma lipoprotein particle binding
-Synonym: lipoprotein binding
-Synonym: plasma lipoprotein binding
------------------------------------------
-GOID: GO:0071814
-Term: protein-lipid complex binding
-Ontology: MF
-Definition: Binding to a protein-lipid complex, any macromolecular complex that contains both protein and
-    lipid molecules.
------------------------------------------
-GOID: GO:1904929
-Term: coreceptor activity involved in Wnt signaling pathway, planar cell polarity pathway
-Ontology: MF
+GOID: GO:1905039
+Term: carboxylic acid transmembrane transport
+Ontology: BP
 Definition: NA
-Synonym: coreceptor activity involved in PCP pathway
-Synonym: coreceptor activity involved in planar cell polarity pathway
-Synonym: coreceptor activity involved in Wnt receptor signaling pathway, planar cell polarity pathway
-Synonym: coreceptor activity involved in Wnt receptor signalling pathway, planar cell polarity pathway
-Synonym: coreceptor activity involved in Wnt-activated signaling pathway, planar cell polarity pathway
-Synonym: Wnt/PCP co-receptor activity
-Synonym: coreceptor activity involved in non-canonical Wnt signaling pathway
-Synonym: coreceptor activity involved in Wnt-JNK signaling pathway
-Synonym: coreceptor activity involved in Wnt-PCP signaling pathway
-Synonym: coreceptor, insoluble ligand activity involved in non-canonical Wnt signaling pathway
-Synonym: coreceptor, insoluble ligand activity involved in PCP pathway
-Synonym: coreceptor, insoluble ligand activity involved in planar cell polarity pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt receptor signaling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt receptor signalling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt signaling pathway, planar cell polarity
-    pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt-activated signaling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt-JNK signaling pathway
-Synonym: coreceptor, insoluble ligand activity involved in Wnt-PCP signaling pathway
-Synonym: coreceptor, soluble ligand activity involved in non-canonical Wnt signaling pathway
-Synonym: coreceptor, soluble ligand activity involved in PCP pathway
-Synonym: coreceptor, soluble ligand activity involved in planar cell polarity pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt receptor signaling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt receptor signalling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt signaling pathway, planar cell polarity
-    pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt-activated signaling pathway, planar cell
-    polarity pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt-JNK signaling pathway
-Synonym: coreceptor, soluble ligand activity involved in Wnt-PCP signaling pathway
-Synonym: Wnt co-receptor activity, non-canonical signaling
-Synonym: Wnt co-receptor, non-canonical pathway
+-----------------------------------------
+GOID: GO:0043067
+Term: regulation of programmed cell death
+Ontology: BP
+Definition: Any process that modulates the frequency, rate or
+    extent of programmed cell death, cell death resulting from
+    activation of endogenous cellular processes.
+Synonym: GO:0043070
+Synonym: regulation of non-apoptotic programmed cell death
+Secondary: GO:0043070
+-----------------------------------------
+GOID: GO:0042981
+Term: regulation of apoptotic process
+Ontology: BP
+Definition: Any process that modulates the occurrence or rate of
+    cell death by apoptotic process.
+Synonym: apoptosis regulator activity
+Synonym: regulation of apoptosis
+-----------------------------------------
+GOID: GO:0046942
+Term: carboxylic acid transport
+Ontology: BP
+Definition: The directed movement of carboxylic acids into, out
+    of or within a cell, or between cells, by means of some agent
+    such as a transporter or pore. Carboxylic acids are organic
+    acids containing one or more carboxyl (COOH) groups or anions
+    (COO-).
+-----------------------------------------
+GOID: GO:0006865
+Term: amino acid transport
+Ontology: BP
+Definition: The directed movement of amino acids, organic acids
+    containing one or more amino substituents, into, out of or
+    within a cell, or between cells, by means of some agent such
+    as a transporter or pore.
+Synonym: GO:0006866
+Secondary: GO:0006866
+-----------------------------------------
+GOID: GO:0012506
+Term: vesicle membrane
+Ontology: CC
+Definition: The lipid bilayer surrounding any membrane-bounded
+    vesicle in the cell.
+-----------------------------------------
+GOID: GO:0090130
+Term: tissue migration
+Ontology: BP
+Definition: The process in which the population of cells that
+    make up a tissue undergo directed movement.
+-----------------------------------------
+GOID: GO:0050896
+Term: response to stimulus
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell or an organism (in terms of movement,
+    secretion, enzyme production, gene expression, etc.) as a
+    result of a stimulus. The process begins with detection of
+    the stimulus and ends with a change in state or activity or
+    the cell or organism.
+Synonym: GO:0051869
+Synonym: physiological response to stimulus
+Secondary: GO:0051869
+-----------------------------------------
+GOID: GO:0015807
+Term: L-amino acid transport
+Ontology: BP
+Definition: The directed movement of L-enantiomer amino acids
+    into, out of or within a cell, or between cells, by means of
+    some agent such as a transporter or pore.
+-----------------------------------------
+GOID: GO:0006820
+Term: anion transport
+Ontology: BP
+Definition: The directed movement of anions, atoms or small
+    molecules with a net negative charge, into, out of or within
+    a cell, or between cells, by means of some agent such as a
+    transporter or pore.
+Synonym: GO:0006822
+Secondary: GO:0006822
+-----------------------------------------
+GOID: GO:0090132
+Term: epithelium migration
+Ontology: BP
+Definition: The process in which the population of cells that
+    make up an epithelium undergo directed movement.
+-----------------------------------------
+GOID: GO:0051402
+Term: neuron apoptotic process
+Ontology: BP
+Definition: Any apoptotic process in a neuron, the basic cellular
+    unit of nervous tissue. Each neuron consists of a body, an
+    axon, and dendrites. Their purpose is to receive, conduct,
+    and transmit impulses in the nervous system.
+Synonym: apoptosis of neuronal cells
+Synonym: apoptosis of neurons
+Synonym: neuron programmed cell death by apoptosis
+Synonym: neuronal cell apoptosis
+Synonym: neuronal cell programmed cell death by apoptosis
+Synonym: programmed cell death of neuronal cells by apoptosis
+Synonym: programmed cell death of neurons by apoptosis
+Synonym: programmed cell death, neuronal cells
+Synonym: programmed cell death, neurons
+Synonym: neuron apoptosis
+-----------------------------------------
+GOID: GO:0001667
+Term: ameboidal-type cell migration
+Ontology: BP
+Definition: Cell migration that is accomplished by extension and
+    retraction of a pseudopodium.
+Synonym: ameboid cell migration
+Synonym: amoeboid cell migration
+Synonym: amoeboidal cell migration
+-----------------------------------------
+GOID: GO:0030659
+Term: cytoplasmic vesicle membrane
+Ontology: CC
+Definition: The lipid bilayer surrounding a cytoplasmic vesicle.
+-----------------------------------------
+GOID: GO:0030855
+Term: epithelial cell differentiation
+Ontology: BP
+Definition: The process in which a relatively unspecialized cell
+    acquires specialized features of an epithelial cell, any of
+    the cells making up an epithelium.
+-----------------------------------------
+GOID: GO:0051716
+Term: cellular response to stimulus
+Ontology: BP
+Definition: Any process that results in a change in state or
+    activity of a cell (in terms of movement, secretion, enzyme
+    production, gene expression, etc.) as a result of a stimulus.
+    The process begins with detection of the stimulus by a cell
+    and ends with a change in state or activity or the cell.
+-----------------------------------------
+GOID: GO:0016043
+Term: cellular component organization
+Ontology: BP
+Definition: A process that results in the assembly, arrangement
+    of constituent parts, or disassembly of a cellular component.
+Synonym: GO:0044235
+Synonym: GO:0071842
+Synonym: cell organisation
+Synonym: cellular component organisation at cellular level
+Synonym: cellular component organisation in other organism
+Synonym: cellular component organization at cellular level
+Synonym: cellular component organization in other organism
+Synonym: cell organization and biogenesis
+Secondary: GO:0044235
+Secondary: GO:0071842
+-----------------------------------------
+GOID: GO:0097435
+Term: supramolecular fiber organization
+Ontology: BP
+Definition: A process that is carried out at the cellular level
+    which results in the assembly, arrangement of constituent
+    parts, or disassembly of a supramolecular fiber, a polymer
+    consisting of an indefinite number of protein or protein
+    complex subunits that have polymerised to form a fiber-shaped
+    structure.
+Synonym: GO:0043206
+Synonym: fibril organisation
+Synonym: fibril organization
+Synonym: extracellular fibril organisation
+Synonym: extracellular fibril organization
+Synonym: extracellular fibril organization and biogenesis
+Secondary: GO:0043206
+-----------------------------------------
+GOID: GO:0010631
+Term: epithelial cell migration
+Ontology: BP
+Definition: The orderly movement of an epithelial cell from one
+    site to another, often during the development of a
+    multicellular organism.
+-----------------------------------------
+GOID: GO:2000026
+Term: regulation of multicellular organismal development
+Ontology: BP
+Definition: NA
+-----------------------------------------
+GOID: GO:0008652
+Term: cellular amino acid biosynthetic process
+Ontology: BP
+Definition: The chemical reactions and pathways resulting in the
+    formation of amino acids, organic acids containing one or
+    more amino substituents.
+Synonym: amino acid biosynthetic process
+Synonym: cellular amino acid anabolism
+Synonym: cellular amino acid biosynthesis
+Synonym: cellular amino acid formation
+Synonym: cellular amino acid synthesis
+-----------------------------------------
+GOID: GO:0030334
+Term: regulation of cell migration
+Ontology: BP
+Definition: Any process that modulates the frequency, rate or
+    extent of cell migration.
+-----------------------------------------
+GOID: GO:0031252
+Term: cell leading edge
+Ontology: CC
+Definition: The area of a motile cell closest to the direction of
+    movement.
+Synonym: front of cell
+Synonym: leading edge of cell
+-----------------------------------------
+GOID: GO:0050793
+Term: regulation of developmental process
+Ontology: BP
+Definition: Any process that modulates the frequency, rate or
+    extent of development, the biological process whose specific
+    outcome is the progression of a multicellular organism over
+    time from an initial condition (e.g. a zygote, or a young
+    adult) to a later condition (e.g. a multicellular animal or
+    an aged adult).
+-----------------------------------------
+GOID: GO:0010941
+Term: regulation of cell death
+Ontology: BP
+Definition: Any process that modulates the rate or frequency of
+    cell death. Cell death is the specific activation or halting
+    of processes within a cell so that its vital functions
+    markedly cease, rather than simply deteriorating gradually
+    over time, which culminates in cell death.
+-----------------------------------------
+GOID: GO:0040011
+Term: locomotion
+Ontology: BP
+Definition: Self-propelled movement of a cell or organism from
+    one location to another.
+-----------------------------------------
+GOID: GO:0040012
+Term: regulation of locomotion
+Ontology: BP
+Definition: Any process that modulates the frequency, rate or
+    extent of locomotion of a cell or organism.
+-----------------------------------------
+GOID: GO:1901605
+Term: alpha-amino acid metabolic process
+Ontology: BP
+Definition: NA
+Synonym: alpha-amino acid metabolism
+-----------------------------------------
+GOID: GO:0007167
+Term: enzyme-linked receptor protein signaling pathway
+Ontology: BP
+Definition: The series of molecular signals initiated by an
+    extracellular ligand binding to a receptor on the surface of
+    the target cell, where the receptor possesses catalytic
+    activity or is closely associated with an enzyme such as a
+    protein kinase, and ending with the regulation of a
+    downstream cellular process, e.g. transcription.
+Synonym: enzyme linked receptor protein signaling pathway
+Synonym: enzyme linked receptor protein signalling pathway
+-----------------------------------------
+GOID: GO:0048468
+Term: cell development
+Ontology: BP
+Definition: The process whose specific outcome is the progression
+    of the cell over time, from its formation to the mature
+    structure. Cell development does not include the steps
+    involved in committing a cell to a specific fate.
+Synonym: terminal differentiation
+-----------------------------------------
+GOID: GO:0071702
+Term: organic substance transport
+Ontology: BP
+Definition: The directed movement of organic substances into, out
+    of or within a cell, or between cells, or within a
+    multicellular organism by means of some agent such as a
+    transporter or pore. An organic substance is a molecular
+    entity that contains carbon.
+-----------------------------------------
+GOID: GO:0098656
+Term: anion transmembrane transport
+Ontology: BP
+Definition: The process in which an anion is transported across a
+    membrane.
+Synonym: GO:0099133
+Synonym: ATP hydrolysis coupled anion transmembrane transport
+Secondary: GO:0099133
+-----------------------------------------
+GOID: GO:0008283
+Term: cell population proliferation
+Ontology: BP
+Definition: The multiplication or reproduction of cells,
+    resulting in the expansion of a cell population.
+Synonym: cell proliferation
+-----------------------------------------
+GOID: GO:0007399
+Term: nervous system development
+Ontology: BP
+Definition: The process whose specific outcome is the progression
+    of nervous tissue over time, from its formation to its mature
+    state.
+Synonym: pan-neural process
 -----------------------------------------

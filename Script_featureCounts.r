@@ -9,6 +9,7 @@ BiocManager::install("goseq")
 BiocManager::install("geneLenDataBase") #no luck. Doesn't support hg38
 BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")
 BiocManager::install("org.Hs.eg.db") #Needed for GOseq
+BiocManager::install("clusterProfiler") #Alternative for GO/overrepresentation analysis
 
 library(Rsubread)
 library(DESeq2)
@@ -18,6 +19,16 @@ library(pheatmap)
 library(regionReport)
 library(geneLenDataBase)
 library(goseq)
+library(GO.db)
+library(clusterProfiler)
+library(tidyverse)
+
+install.packages('devtools')
+require(devtools)
+install_version("rvcheck", version = "0.1.8", repos = "http://cran.us.r-project.org")
+library(rvcheck)
+?patchwork
+install.packages("patchwork")
 ##featureCounts -----
 fC <- featureCounts(files = c("alignment_output/B1_AlignedReads.sam","alignment_output/B2_AlignedReads.sam","alignment_output/B3_AlignedReads.sam", "alignment_output/C1_AlignedReads.sam","alignment_output/C2_AlignedReads.sam","alignment_output/C3_AlignedReads.sam"),
               annot.inbuilt = "hg38",
@@ -70,6 +81,14 @@ plotMA(resLFC, ylim = c(-2,2)) #plot log2 FCs over mean of normalized counts for
 idx <- identify(res$baseMean, res$log2FoldChange) #Id row number of individual genes. Click in plot then click finish
 rownames(res)[idx]
 
+resSigDown <- subset(resSig, log2FoldChange <= -0.6)
+resSigUp <- subset(resSig, log2FoldChange >=0.6)
+#Down-regulated genes (significantly) with less than -0.6 Log2 FC
+SigDownTidy <- as_tibble(resSigDown) %>%
+  mutate(GeneID = resSigDown@rownames, .before = 1)
+#Up-regulated genes (sig) with more than 0.6 Log2 FC
+sigUpTidy <- as_tibble(resSigUp) %>%
+  mutate(GeneID = resSigUp@rownames, .before = 1)
 ##PCA -----
 #Variance stabilizing transformation
 ?vst
@@ -111,15 +130,233 @@ dir.create('DESeq2_out', showWarnings = FALSE, recursive = TRUE)
 report <- DESeq2Report(dds, project = 'MMP13 knockdown in DOK', intgroup = 'group', outdir = 'DESeq2_out', output = 'index')
 
 
-##GO analysis -----
+##GO analysis w. goSEQ -----
 supportedGeneIDs() #hg38 not supported
 
+#Get data formatted correctly
 DEG <- as.vector(resSig@rownames) #Create character vector of DE genes
 ALL <- as.vector(res@rownames) #Create character vector of all genes
 gene.vector=as.integer(ALL%in%DEG) #Assign value 1 for genes present in DE genes
 names(gene.vector)=ALL #Assign names from ALL
 head(gene.vector)
 
+
+DEG2 <- as.vector(c(sigDownTidy$GeneID, sigUpTidy$GeneID))
+#GOseq
 pwf=nullp(gene.vector, "hg38","knownGene")
 head(pwf)
 GO.wall=goseq(pwf, "hg38","knownGene")
+class(GO.wall)
+head(GO.wall)
+nrow(GO.wall)
+
+#Filter for significance
+enriched.GO=GO.wall$category[p.adjust(GO.wall$over_represented_pvalue, method='BH')<.05]
+head(enriched.GO)
+
+for (go  in enriched.GO[1:10]) {
+  print(GOTERM[[go]])
+  cat("-----------------------------------------\n")
+}
+
+#To save txt file 
+
+capture.output(for (go in enriched.GO[1:100]) {
+  print(GOTERM[[go]])
+  cat("-----------------------------------------\n")
+}
+, file = "SigGo.txt")
+  
+#Molecular function pathways
+GO.MF=goseq(pwf, "hg38","knownGene",test.cats=c("GO:MF"))
+enriched.GO.mf=GO.MF$category[p.adjust(GO.MF$over_represented_pvalue, method='BH')<0.5]
+
+capture.output(for (go in enriched.GO.mf[1:47]) {
+  print(GOTERM[[go]])
+  cat("-----------------------------------------\n")
+}
+, file = "SigGoMF.txt")
+
+#Biological processes pathways
+GO.BP=goseq(pwf, "hg38","knownGene",test.cats=c("GO:BP"))
+enriched.GO.bp=GO.MF$category[p.adjust(GO.BP$over_represented_pvalue, method='BH')<0.5]
+
+capture.output(for (go in enriched.GO.bp[1:100]) {
+  print(GOTERM[[go]])
+  cat("-----------------------------------------\n")
+}
+, file = "SigGoBP.txt")
+
+
+## ClusterProfiler -----
+
+?clusterProfiler
+??clusterProfiler
+
+?enrichGO()
+enrich_GO <- enrichGO(
+  gene = DEG,
+  OrgDb = "org.Hs.eg.db",
+  keyType = "ENTREZID",
+  ont = "MF",
+  pvalueCutoff = 0.05,
+  pAdjustMethod = "BH",
+  universe = ALL,
+  qvalueCutoff = 0.5,
+  readable = TRUE
+)
+  
+enrich_GO_tidy <- enrich_GO %>%
+  slot("result") %>%
+  tibble::as.tibble()
+
+dotplot(enrich_GO)
+
+ggsave("enrichGO_dotplot.png")
+
+pairwise_termsim(enrich_GO) #?
+emapplot(enrich_GO)
+DEG
+
+#Try enrichGO with restricted DEG list
+#MF
+enrich_GO_MF <- enrichGO(
+  gene = DEG2,
+  OrgDb = "org.Hs.eg.db",
+  keyType = "ENTREZID",
+  ont = "MF",
+  pvalueCutoff = 0.05,
+  pAdjustMethod = "BH",
+  universe = ALL,
+  qvalueCutoff = 0.5,
+  readable = TRUE
+)
+
+GO_MF.t <- enrich_GO_MF %>%
+  slot("result") %>%
+  tibble::as.tibble()
+
+dotplot(enrich_GO_MF,
+        title = "GO terms MF")
+ggsave("GO.MF_enrichmentDotPlot.png")
+
+MFsimilarityMatrix <- as.tibble(pairwise_termsim(enrich_GO_MF))
+
+emapplot(pairwise_termsim(enrich_GO_MF))
+ggsave("GO.MF_enrichmentPlot.png")
+
+#CC
+
+enrich_GO_CC <- enrichGO(
+  gene = DEG2,
+  OrgDb = "org.Hs.eg.db",
+  keyType = "ENTREZID",
+  ont = "CC",
+  pvalueCutoff = 0.05,
+  pAdjustMethod = "BH",
+  universe = ALL,
+  qvalueCutoff = 0.5,
+  readable = TRUE
+)
+
+GO_CC.t <- enrich_GO_CC %>%
+  slot("result") %>%
+  tibble::as.tibble()
+
+dotplot(enrich_GO_CC,
+        title = "GO terms CC")
+ggsave("GO.CC_enrichmentDotPlot.png")
+
+CCsimilarityMatrix <- as.tibble(pairwise_termsim(enrich_GO_CC))
+
+emapplot(pairwise_termsim(enrich_GO_CC))
+ggsave("GO.CC_enrichmentPlot.png")
+
+#BP 
+
+enrich_GO_BP <- enrichGO(
+  gene = DEG2,
+  OrgDb = "org.Hs.eg.db",
+  keyType = "ENTREZID",
+  ont = "BP",
+  pvalueCutoff = 0.05,
+  pAdjustMethod = "BH",
+  universe = ALL,
+  qvalueCutoff = 0.5,
+  readable = TRUE
+)
+
+GO_BP.t <- enrich_GO_BP %>%
+  slot("result") %>%
+  tibble::as.tibble()
+
+dotplot(enrich_GO_BP,
+        title = "GO terms BP")
+ggsave("GO.BP_enrichmentDotPlot.png")
+
+BPsimilarityMatrix <- as.tibble(pairwise_termsim(enrich_GO_BP))
+
+emapplot(pairwise_termsim(enrich_GO_BP))
+ggsave("GO.BP_enrichmentPlot.png")
+
+#combine 
+write.csv(BPsimilarityMatrix, 
+          file = "BPsimilarityMatrix.csv")
+write.csv(MFsimilarityMatrix,
+          file = "MFsimilarityMatrix.csv")
+write.csv(CCsimilarityMatrix,
+          file = "CCsimilarityMatrix.csv")
+
+write.csv(GO_BP.t,
+          file = "GO_BP_results.csv")
+write.csv(GO_MF.t,
+          file = "GO_MF_results.csv")
+write.csv(GO_CC.t,
+          file = "GO_CC_results.csv")
+##Assign gene symbols from Entrez IDs -----
+install.packages("annotate")
+library(annotate)
+library(org.Hs.eg.db)
+?getSYMBOL()
+downSymbols <- getSYMBOL(SigDownTidy$GeneID, data = 'org.Hs.eg.db')
+
+sigDownTidy <- 
+  SigDownTidy %>%
+  mutate(Symbol = downSymbols, .before=1)
+
+upSymbols <- getSYMBOL(sigUpTidy$GeneID, data = 'org.Hs.eg.db')
+
+sigUpTidy <- 
+  sigUpTidy %>%
+  mutate(Symbol = upSymbols, .before=1)
+
+write.csv(sigUpTidy, file = "upDEGs.csv")
+write.csv(sigDownTidy, file = "downDEGs.csv")
+library(readxl)
+
+##From previous work - histogram/heatmap -----
+
+library(tidyverse)
+library(limma) 
+library(RColorBrewer)
+library(gplots) 
+geneLabels <- c("BLMH", "C12orf54", "CTD-2192J16.20", "CXorf56", "F5", "IFNAR1", "IGIP", "NEGR1", "NOX5", "PKD1P5", "PLEKHA3", "PMFBP1", "SYT16", "ULBP1")
+myheatcolors <- rev(brewer.pal(name="RdBu", n=11))
+clustRows <- hclust(as.dist(1-cor(t(diffGenes), method="pearson")), method="complete") 
+clustColumns <- hclust(as.dist(1-cor(diffGenes, method="spearman")), method="complete") #cluster columns by spearman correlation
+module.assign <- cutree(clustRows, k=2)
+module.color <- rainbow(length(unique(module.assign)), start=0.1, end=0.9) 
+module.color <- module.color[as.vector(module.assign)] 
+heatmap.2(diffGenes, 
+          Rowv=as.dendrogram(clustRows), 
+          Colv=as.dendrogram(clustColumns),
+          RowSideColors=module.color,
+          col=rev(myheatcolors), scale='row', labRow=geneLabels, labCol = sampleLabels,
+          density.info="none", trace="none",  
+          cexRow=1, cexCol=1, margins = c(8,20))
+
+DEGs <- as_tibble(DEG)
+allGenes <- as_tibble(ALL)
+allGenes <- as_tibble(resOrdered) %>%
+  mutate(GeneID = resOrdered@rownames, .before = 1)
+fC_counts["4322",]
