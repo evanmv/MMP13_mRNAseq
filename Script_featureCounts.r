@@ -334,27 +334,7 @@ write.csv(sigUpTidy, file = "upDEGs.csv")
 write.csv(sigDownTidy, file = "downDEGs.csv")
 library(readxl)
 
-##From previous work - histogram/heatmap -----
-
-library(tidyverse)
-library(limma) 
-library(RColorBrewer)
-library(gplots) 
-geneLabels <- c("BLMH", "C12orf54", "CTD-2192J16.20", "CXorf56", "F5", "IFNAR1", "IGIP", "NEGR1", "NOX5", "PKD1P5", "PLEKHA3", "PMFBP1", "SYT16", "ULBP1")
-myheatcolors <- rev(brewer.pal(name="RdBu", n=11))
-clustRows <- hclust(as.dist(1-cor(t(diffGenes), method="pearson")), method="complete") 
-clustColumns <- hclust(as.dist(1-cor(diffGenes, method="spearman")), method="complete") #cluster columns by spearman correlation
-module.assign <- cutree(clustRows, k=2)
-module.color <- rainbow(length(unique(module.assign)), start=0.1, end=0.9) 
-module.color <- module.color[as.vector(module.assign)] 
-heatmap.2(diffGenes, 
-          Rowv=as.dendrogram(clustRows), 
-          Colv=as.dendrogram(clustColumns),
-          RowSideColors=module.color,
-          col=rev(myheatcolors), scale='row', labRow=geneLabels, labCol = sampleLabels,
-          density.info="none", trace="none",  
-          cexRow=1, cexCol=1, margins = c(8,20))
-
+#?
 DEGs <- as_tibble(DEG)
 allGenes <- as_tibble(ALL)
 allGenes <- as_tibble(resOrdered) %>%
