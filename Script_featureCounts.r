@@ -103,13 +103,13 @@ percentVar <- formatC(100 * attr(pcaData, "percentVar"))
 
 #plot w/ GGplot
 ggplot(pcaData, aes(PC1, PC2, color=group)) +
-  geom_point(size=3) +
+  geom_point(size=5) +
   xlab(paste0("PC1 (",percentVar[1],"%)")) +
   ylab(paste0("PC2 (",percentVar[2],"%)")) +
   coord_fixed() +
   theme_bw()
 
-ggsave("PCA.png")
+ggsave("PCA_5pt.png")
 
 #Heatmap
 select <- order(rowMeans(counts(dds, normalized=TRUE)),
