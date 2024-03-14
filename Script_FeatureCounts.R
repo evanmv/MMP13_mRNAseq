@@ -39,6 +39,8 @@ View(fC$annotation)
 View(fC$stat)
 View(fC$counts)
 
+fC_counts["4322",] #MMP13 counts
+fC_counts["22806",]
 ##DESeq2 -----
 
 #Change col names from feature counts to match study design file
@@ -62,7 +64,7 @@ dds <- dds[keep, ]
 dds <- DESeq(dds)
 res <- results(dds)
 res
-
+?DESeq
 #Shrinkage of effect size
 resultsNames(dds)
 resLFC <- lfcShrink(dds, 
@@ -70,7 +72,7 @@ resLFC <- lfcShrink(dds,
                     type = "apeglm")
 
 resOrdered <- res[order(res$pvalue),] #Order by smallest p-value
-summary(res)
+summary(resOrdered)
 
 res05 <- results(dds, alpha=0.05)
 summary(res05)
