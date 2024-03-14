@@ -41,4 +41,5 @@ ggplot(res.vplot) +
        caption=paste0("produced on ", Sys.time())) +
   theme_bw()
 
+ggsave("vplot.png")
 ?ggplot
