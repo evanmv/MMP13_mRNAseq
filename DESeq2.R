@@ -12,7 +12,7 @@ library(goseq)
 library(GO.db)
 library(clusterProfiler)
 library(tidyverse)
-
+BiocManager::install("regionReport")
 ##DESeq2 -----
 
 dds <- DESeqDataSetFromMatrix(countData = fC_counts,
@@ -27,6 +27,13 @@ dds <- dds[keep, ]
 dds.nf <- DESeq(dds)
 res.nf <- results(dds.nf, independentFiltering=FALSE)
 res.nf
+
+##regionReport -----
+#Generate report with regionReport
+#Problem with regionReport?
+dir.create('DESeq2.nf_out', showWarnings = FALSE, recursive = TRUE)
+report <- DESeq2Report(dds.nf, project = 'MMP13 knockdown in DOK', intgroup = 'group', res = 'res.nf', outdir = 'DESeq2.nf_out', output = 'index')
+??DESeq2Report
 
 #Shrinkage of effect size with apeglm
 resultsNames(dds.nf)
