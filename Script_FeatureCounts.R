@@ -28,6 +28,7 @@ require(devtools)
 install_version("rvcheck", version = "0.1.8", repos = "http://cran.us.r-project.org")
 library(rvcheck)
 ?patchwork
+??rvcheck
 install.packages("patchwork")
 ##featureCounts -----
 fC <- featureCounts(files = c("alignment_output/B1_AlignedReads.sam","alignment_output/B2_AlignedReads.sam","alignment_output/B3_AlignedReads.sam", "alignment_output/C1_AlignedReads.sam","alignment_output/C2_AlignedReads.sam","alignment_output/C3_AlignedReads.sam"),

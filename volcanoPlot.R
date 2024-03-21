@@ -18,8 +18,8 @@ vplot <- ggplot(res.nf.vplot) +
   aes(y=-log10(padj), x=log2FoldChange, text = paste("Symbol:", Symbol)) +
   geom_point(size=1) +
   geom_hline(yintercept = -log10(0.05), linetype="longdash", colour="grey", size=1) +
-  geom_vline(xintercept = 0.8, linetype="longdash", colour="#2C467A", size=1) +
-  geom_vline(xintercept = -0.8, linetype="longdash", colour="#BE684D", size=1) +
+  geom_vline(xintercept = 1.0, linetype="longdash", colour="#2C467A", size=1) +
+  geom_vline(xintercept = -1.0, linetype="longdash", colour="#BE684D", size=1) +
   ylim(NA, 75) +
   labs(title="Volcano plot",
        subtitle = "MMP13 kd",

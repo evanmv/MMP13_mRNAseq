@@ -86,3 +86,22 @@ heatmap.2(as.matrix(vsd.hmap.sigNarrow),
 )
 
 #Played around with keysize and cexCol (column label size). This is the best so far. 
+
+#Heatmap with full diff gene set
+clustRowsNF <- hclust(as.dist(1-cor(t(vsd.nf.hmap.sig), method="pearson")), method="complete") 
+clustColumnsNF <- hclust(as.dist(1-cor(vsd.nf.hmap.sig, method="spearman")), method="complete") #cluster columns by spearman correlation
+module.assignNF <- cutree(clustRowsNF, k=2)
+module.colorNF <- rainbow(length(unique(module.assignNF)), start=0.1, end=0.9) 
+module.colorNF <- module.colorNF[as.vector(module.assignNF)] 
+
+heatmap.2(as.matrix(vsd.nf.hmap.sig), 
+          Rowv=as.dendrogram(clustRowsNF), 
+          Colv=as.dendrogram(clustColumnsNF),
+          RowSideColors=module.colorNF,
+          col=rev(myheatcolors), scale='row',
+          density.info="none", trace="none",
+          labRow = FALSE,
+          cexRow=1, cexCol=2, margins = c(4,2),
+          key = TRUE, keysize = 1,
+)
+?heatmap.2
