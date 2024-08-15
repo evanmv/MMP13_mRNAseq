@@ -63,7 +63,7 @@ module.colorN <- module.colorN[as.vector(module.assignN)]
 
 myheatcolors <- rev(brewer.pal(name="RdBu", n=11))
 #Narrow, non-filtered...
-heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow), 
+heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow), 
           Rowv=as.dendrogram(clustRows), 
           Colv=as.dendrogram(clustColumns),
           RowSideColors=module.color,

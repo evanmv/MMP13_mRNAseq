@@ -58,7 +58,7 @@ pcaData.nf <- plotPCA(vsd.nf, intgroup="group", returnData=TRUE)
 percentVar.nf <- formatC(100 * attr(pcaData.nf, "percentVar"))
 
 #plot w/ GGplot
-ggplot(pcaData.nf, aes(PC1, PC2, color=group)) +
+PCA_nf <- ggplot(pcaData.nf, aes(PC1, PC2, color=group)) +
   geom_point(size=5) +
   xlab(paste0("PC1 (",percentVar.nf[1],"%)")) +
   ylab(paste0("PC2 (",percentVar.nf[2],"%)")) +
