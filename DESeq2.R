@@ -49,7 +49,7 @@ summary(resSig.nf)
 ##PCA -----
 #Variance stabilizing transformation
 
-vsd.nf <- vst(dds.nofilt)
+vsd.nf <- vst(dds.nf)
 head(assay(vsd.nf), 3)
 
 #PCA 

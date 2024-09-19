@@ -27,13 +27,13 @@ vsd.nf.hmap.sig[,1] <- NULL
 
 #Narrow down DEG list to ca. 20
 
-resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -1 | log2FoldChange >= 1)
+#resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -1 | log2FoldChange >= 1)
+#resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
+ # mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
+
+resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
 resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
   mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
-
-#resSigNarrow <- subset(resSig, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
-#resSigTidy <- as_tibble(resSigNarrow) %>%
- # mutate(GeneID = resSigNarrow@rownames, .before = 1)
 
 vsd.nf.hmap.sigNarrow <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% resSig.nf.Narrow$GeneID,]
 
@@ -61,8 +61,9 @@ module.colorN <- module.colorN[as.vector(module.assignN)]
 
 ## Heatmap -----
 
-myheatcolors <- rev(brewer.pal(name="RdBu", n=11))
+myheatcolors <- brewer.pal(name="RdBu", n=11)
 #Narrow, non-filtered...
+png("2024.09.19_heatmap.png")
 heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow), 
           Rowv=as.dendrogram(clustRows), 
           Colv=as.dendrogram(clustColumns),
@@ -72,7 +73,8 @@ heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow),
           cexRow=1, cexCol=2, margins = c(4,6),
           key = TRUE, keysize = 2,
 )
-
+ 
+dev.off()
 #Heatmap with narrowed DEG list
 
 heatmap.2(as.matrix(vsd.hmap.sigNarrow), 
