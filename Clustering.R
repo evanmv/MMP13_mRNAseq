@@ -70,7 +70,7 @@ DEGtable <- resSig.nf.Narrow %>%
     palette = myheatcolors
   )
   
-gtsave(DEGtable, "tableDEGs.png")
+gtsave(DEGtable, "tableDEGs.png") #gtsave doesn't work on fox (no chrome)
 
 ## Cluster DEGs ----
 #Narrowed non-filtered DEGs (FC 1, padj 0.05)
