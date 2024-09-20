@@ -68,3 +68,4 @@ PCA_nf <- ggplot(pcaData.nf, aes(PC1, PC2, color=group)) +
 ggsave("PCA_nf.png")
 
 
+

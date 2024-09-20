@@ -1,5 +1,13 @@
 ##From previous work - histogram/heatmap -----
 ##Packages -----
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("org.Hs.eg.db")
+install.packages("tidyverse")
+BiocManager::install("annotate")
+BiocManager::install("DESeq2")
+install.packages("gt")
+install.packages("gtExtras")
 library(tidyverse)
 library(limma) 
 library(RColorBrewer)
@@ -7,12 +15,14 @@ library(gplots)
 library(DESeq2)
 library(annotate)
 library(org.Hs.eg.db)
+library(gt)
+library(gtExtras)
 
 ## Data -----
 
 vsd.nf.hmap <- assay(vsd.nf) %>%
   as.data.frame()
-geneSymbols <- getSYMBOL(rownames(vsd.nf.hmap), data = 'org.Hs.eg.db')
+geneSymbols <- getSYMBOL(vsd.nf.hmap$GeneID, data = 'org.Hs.eg.db')
 
 vsd.nf.hmap <- vsd.nf.hmap %>%
   mutate(Symbol = geneSymbols, .before = 1)
@@ -25,7 +35,7 @@ vsd.nf.hmap.sig <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% DEG.nf,]
 row.names(vsd.nf.hmap.sig) <- vsd.nf.hmap.sig[,1] 
 vsd.nf.hmap.sig[,1] <- NULL
 
-#Narrow down DEG list to ca. 20
+#Narrow down DEG list to ca. 20 **update - 40 (20240920)
 
 #resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -1 | log2FoldChange >= 1)
 #resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
@@ -34,13 +44,33 @@ vsd.nf.hmap.sig[,1] <- NULL
 resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
 resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
   mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
+geneSymbols.nf <- getSYMBOL(resSig.nf.Narrow$GeneID, data = 'org.Hs.eg.db')
+resSig.nf.Narrow <- resSig.nf.Narrow %>% 
+  mutate(Symbol = geneSymbols.nf, .before = 1)
 
 vsd.nf.hmap.sigNarrow <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% resSig.nf.Narrow$GeneID,]
 
 row.names(vsd.nf.hmap.sigNarrow) <- vsd.nf.hmap.sigNarrow[,1] 
 vsd.nf.hmap.sigNarrow[,1] <- NULL
   
-?subset
+write_csv(resSig.nf.Narrow, "2024.09.20_DEGs.csv")
+
+#table of DEGs 
+
+DEGtable <- resSig.nf.Narrow %>% 
+  select(Symbol, log2FoldChange, padj) %>%
+  gt() %>%
+  tab_header(
+    title = "Differentially expressed genes in response to MMP13 knockdown in DOK",
+    subtitle = "Fold change cutoff +/- 0.8"
+  ) %>%
+  gt_color_rows(
+    columns = log2FoldChange,
+    domain = c(-2, 2),
+    palette = myheatcolors
+  )
+  
+gtsave(DEGtable, "tableDEGs.png")
 
 ## Cluster DEGs ----
 #Narrowed non-filtered DEGs (FC 1, padj 0.05)
@@ -63,7 +93,7 @@ module.colorN <- module.colorN[as.vector(module.assignN)]
 
 myheatcolors <- brewer.pal(name="RdBu", n=11)
 #Narrow, non-filtered...
-png("2024.09.19_heatmap.png")
+options(bitmapType = 'cairo')
 heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow), 
           Rowv=as.dendrogram(clustRows), 
           Colv=as.dendrogram(clustColumns),
@@ -71,7 +101,7 @@ heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow),
           col=rev(myheatcolors), scale='row',
           density.info="none", trace="none",  
           cexRow=1, cexCol=2, margins = c(4,6),
-          key = TRUE, keysize = 2,
+          key = TRUE, keysize = 1,
 )
  
 dev.off()
