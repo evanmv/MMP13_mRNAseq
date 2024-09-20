@@ -46,7 +46,8 @@ resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
   mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
 geneSymbols.nf <- getSYMBOL(resSig.nf.Narrow$GeneID, data = 'org.Hs.eg.db')
 resSig.nf.Narrow <- resSig.nf.Narrow %>% 
-  mutate(Symbol = geneSymbols.nf, .before = 1)
+  mutate(Symbol = geneSymbols.nf, .before = 1) %>%
+  mutate(Change = ifelse(log2FoldChange > 0, 'Up', 'Down'))
 
 vsd.nf.hmap.sigNarrow <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% resSig.nf.Narrow$GeneID,]
 
@@ -58,19 +59,28 @@ write_csv(resSig.nf.Narrow, "2024.09.20_DEGs.csv")
 #table of DEGs 
 
 DEGtable <- resSig.nf.Narrow %>% 
-  select(Symbol, log2FoldChange, padj) %>%
-  gt() %>%
+  select(Symbol, log2FoldChange, padj, Change) %>%
+  gt(groupname_col = "Change") %>%
   tab_header(
-    title = "Differentially expressed genes in response to MMP13 knockdown in DOK",
+    title = md("**DEGs in response to MMP13 knockdown in DOK**"),
     subtitle = "Fold change cutoff +/- 0.8"
   ) %>%
   gt_color_rows(
     columns = log2FoldChange,
     domain = c(-2, 2),
     palette = myheatcolors
-  )
-  
-gtsave(DEGtable, "tableDEGs.png") #gtsave doesn't work on fox (no chrome)
+  ) %>%
+  tab_row_group(
+    label = md("**Up**"),
+    rows = resSig.nf.Narrow$Change == "Up"
+  ) %>%
+  tab_row_group(
+    label = md("**Down**"),
+    rows = resSig.nf.Narrow$Change == "Down"
+  ) %>%
+  row_group_order(groups = c("**Up**", "**Down**"))
+#Possible to group into up and down?   
+gtsave(DEGtable, "tableDEGs2.png") #gtsave doesn't work on fox (no chrome)
 
 ## Cluster DEGs ----
 #Narrowed non-filtered DEGs (FC 1, padj 0.05)
@@ -98,7 +108,7 @@ heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow),
           Rowv=as.dendrogram(clustRows), 
           Colv=as.dendrogram(clustColumns),
           RowSideColors=module.color,
-          col=rev(myheatcolors), scale='row',
+          col=myheatcolors, scale='row',
           density.info="none", trace="none",  
           cexRow=1, cexCol=2, margins = c(4,6),
           key = TRUE, keysize = 1,
