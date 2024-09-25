@@ -1,4 +1,5 @@
 ##From previous work - histogram/heatmap -----
+#Clean up a bit more 
 ##Packages -----
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
