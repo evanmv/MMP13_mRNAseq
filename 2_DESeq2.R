@@ -43,6 +43,8 @@ dds <- dds[keep, ]
 dds_nf <- DESeq(dds)
 res_nf <- results(dds_nf, independentFiltering=FALSE)
 res_nf
+res_df <- as.data.frame(res_nf)
+write_csv(res_df, "res_nf.csv")
 
 ##regionReport -----
 #Generate report with regionReport
@@ -65,8 +67,10 @@ rownames(res_nf)[idx] #Helpful after fetching gene names
 #Subset "significant" results
 res_ord <- res_nf[order(res_nf$pvalue),]
 summary(res_ord)
-res_sig <- subset(res_ord, padj < 0.05) #Subset of ordered dataset with significance less that 0.05
+res_sig <- subset(res_ord, padj < 0.05) #Subset of ordered dataset with significance less than 0.05
 summary(res_sig)
+res_sig_df <- as.data.frame(res_sig)
+write_csv(res_sig_df, "res_sig.csv")
 
 ##PCA -----
 #Variance stabilizing transformation
@@ -88,8 +92,6 @@ PCA <- ggplot(pca_data, aes(PC1, PC2, color=group)) +
   theme_bw()
 
 ggsave("PCA.png")
-
-#Small multiples plot
 
 # Create a PCA 'small multiples' chart ----
 # this is another way to view PCA laodings to understand impact of each sample on each pricipal component
