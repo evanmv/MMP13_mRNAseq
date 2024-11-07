@@ -6,16 +6,19 @@ library(plotly)
 install.packages("patchwork")
 library(patchwork)
 ##Data -----
-res.nf.vplot <- as_tibble(res.nf) %>%
-  mutate(GeneID = res.nf@rownames, .before = 1) 
+res_nf <- read.csv("res_nf.csv")
 
-res.nf.Symbols <- getSYMBOL(res.nf.vplot$GeneID, data = 'org.Hs.eg.db')
+names(res_nf)[names(res_nf) == 'X'] <- 'GeneID'
 
-res.nf.vplot <- mutate(res.nf.vplot, Symbol = res.nf.Symbols, .before=1)
+res_nf_vplot <- as_tibble(res_nf) 
+
+res_nf_symbols <- getSYMBOL(as.character(res_nf_vplot$GeneID), data = 'org.Hs.eg.db')
+
+res_nf_vplot <- mutate(res_nf_vplot, Symbol = res_nf_symbols, .before=1)
 
 ##Volcano plot -----
 
-vplot <- ggplot(res.nf.vplot) +
+vplot <- ggplot(res_nf_vplot) +
   aes(y=-log10(padj), x=log2FoldChange, text = paste("Symbol:", Symbol)) +
   geom_point(size=1) +
   geom_hline(yintercept = -log10(0.05), linetype="longdash", colour="grey", size=1) +
@@ -47,26 +50,26 @@ ggsave("vplotYlim.nf.png")
 ?ggplot
 
 #DOWN
-vplotdown <- ggplot(res.nf.vplot) +
+vplotdown <- ggplot(res_nf_vplot) +
   aes(y=-log10(padj), x=log2FoldChange, text = paste("Symbol:", Symbol)) +
   geom_point(size=1.5, colour = "#2C467A") +
   geom_hline(yintercept = -log10(0.05), linetype="longdash", colour="grey", size=1) +
   geom_vline(xintercept = -0.8, linetype="longdash", colour="#2C467A", size=1) +
   ylim(1.30, 40) +
-  xlim(-2, -1) +
+  xlim(-2, -0.8) +
   labs(title = "Downregulated genes") +
   theme_bw()
 
 ggplotly(vplotdown) 
 
 #UP
-vplotup <- ggplot(res.nf.vplot) +
+vplotup <- ggplot(res_nf_vplot) +
   aes(y=-log10(padj), x=log2FoldChange, text = paste("Symbol:", Symbol)) +
   geom_point(size=1.5, colour = "#BE684D") +
   geom_hline(yintercept = -log10(0.05), linetype="longdash", colour="grey", size=1) +
   geom_vline(xintercept = 0.8, linetype="longdash", colour="#BE684D", size=1) +
-  ylim(1.30, 5) +
-  xlim(1, 2) +
+  ylim(1.30, 10) +
+  xlim(0.8, 2) +
   labs(title = "Upregulated genes") +
   theme_bw()
 
