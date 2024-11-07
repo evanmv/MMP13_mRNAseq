@@ -44,7 +44,7 @@ dds_nf <- DESeq(dds)
 res_nf <- results(dds_nf, independentFiltering=FALSE)
 res_nf
 res_df <- as.data.frame(res_nf)
-write_csv(res_df, "res_nf.csv")
+write.csv(res_df, "res_nf.csv", row.names = TRUE)
 
 ##regionReport -----
 #Generate report with regionReport
@@ -70,7 +70,7 @@ summary(res_ord)
 res_sig <- subset(res_ord, padj < 0.05) #Subset of ordered dataset with significance less than 0.05
 summary(res_sig)
 res_sig_df <- as.data.frame(res_sig)
-write_csv(res_sig_df, "res_sig.csv")
+write.csv(res_sig_df, "res_sig.csv", row.names = TRUE)
 
 ##PCA -----
 #Variance stabilizing transformation
