@@ -13,17 +13,26 @@ library(regionReport)
 library(tidyverse)
 
 ##DESeq2 -----
+#Read in featureCounts data, remove lengths column
+fc_counts <- read_tsv("counts.txt") %>%
+  mutate(Length = NULL) 
+#Change to dataframe, tidyverse didn't want to work to reassign column to rownames which is needed for DESeq2
+fc_counts <- as.data.frame(fc_counts)
 
+#Reassign GeneID as rownames and remove column
+rownames(fc_counts) <- fc_counts[, 1]
+fc_counts <- fc_counts[, -1]
+  
 #Change col names from feature counts to match study design file
-colnames(fC$counts) <- sub("_AlignedReads.sam", "", colnames(fC$counts))
+colnames(fc_counts) <- sub("_AlignedReads.sam", "", colnames(fc_counts))
 #Read in study design file
-colData <- read.delim("studydesign.txt", row.names = 1)
+col_data <- read.delim("studydesign.txt", row.names = 1)
 
 #Double check for matching row/column names
-all(rownames(colData) == colnames(fC_counts))
+all(rownames(col_data) == colnames(fc_counts))
 
-dds <- DESeqDataSetFromMatrix(countData = fC_counts,
-                              colData = colData,
+dds <- DESeqDataSetFromMatrix(countData = fc_counts,
+                              colData = col_data,
                               design = ~ group)
 #Pre-filtering 
 smallestGroupSize <- 3
@@ -31,25 +40,25 @@ keep <- rowSums(counts(dds) >=10) >= smallestGroupSize
 dds <- dds[keep, ]
 
 #DGE analysis 
-dds.nf <- DESeq(dds)
-res.nf <- results(dds.nf, independentFiltering=FALSE)
-res.nf
+dds_nf <- DESeq(dds)
+res_nf <- results(dds_nf, independentFiltering=FALSE)
+res_nf
 
 ##regionReport -----
 #Generate report with regionReport
 #Problem with regionReport?
-dir.create('DESeq2.nf_out', showWarnings = FALSE, recursive = TRUE)
-report <- DESeq2Report(dds.nf, project = 'MMP13 knockdown in DOK', intgroup = 'group', res = 'res.nf', outdir = 'DESeq2.nf_out', output = 'index')
+dir.create('DESeq2_nf_out', showWarnings = FALSE, recursive = TRUE)
+report <- DESeq2Report(dds_nf, project = 'MMP13 knockdown in DOK', intgroup = 'group', res = 'res.nf', outdir = 'DESeq2.nf_out', output = 'index')
 ??DESeq2Report
 
 #Shrinkage of effect size with apeglm
-resultsNames(dds.nf)
-resLFC <- lfcShrink(dds.nf, 
+resultsNames(dds_nf)
+res_lfc <- lfcShrink(dds_nf, 
                     coef = "group_Knockdown_vs_Control",
                     type = "apeglm")
-summary(resLFC)
+summary(res_lfc)
 
-plotMA(resLFC, ylim = c(-2,2)) #plot log2 FCs over mean of normalized counts for all samples.
+plotMA(res_lfc, ylim = c(-2,2)) #plot log2 FCs over mean of normalized counts for all samples.
 idx <- identify(res$baseMean, res$log2FoldChange) #Id row number of individual genes. Click in plot then click finish
 rownames(res)[idx]
 
