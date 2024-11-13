@@ -1,5 +1,5 @@
 ##From previous work - histogram/heatmap -----
-#Clean up a bit more 
+ 
 ##Packages -----
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -46,10 +46,6 @@ vsd_hmap_sig[,1] <- NULL
 
 #Narrow down DEG list to ca. 20 **update - 40 (20240920)
 
-#resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -1 | log2FoldChange >= 1)
-#resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
- # mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
-
 res_sig_08 <- subset(res_sig, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
 res_sig_08 <- as_tibble(res_sig_08)
 geneSymbols_08 <- getSYMBOL(as.character(res_sig_08$GeneID), data = 'org.Hs.eg.db')
@@ -64,7 +60,7 @@ vsd_hmap_sig_08[, 1] <- NULL
   
 write_csv(res_sig_08, "2024.11.13_DEGs.csv")
 
-#table of DEGs 
+##table of DEGs -----
 #Define myheatcolors first
 myheatcolors <- brewer.pal(name="RdBu", n=11)
 DEGtable <- res_sig_08 %>% 
