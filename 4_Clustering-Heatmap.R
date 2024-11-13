@@ -20,21 +20,29 @@ library(gt)
 library(gtExtras)
 
 ## Data -----
+#Read in data files 
 
-vsd.nf.hmap <- assay(vsd.nf) %>%
+res_sig <- read.csv("res_sig.csv")
+names(res_sig)[names(res_sig) == 'X'] <- 'GeneID'
+
+#Get dds_nf from 2_DESeq2.R lines 8 to 43
+vsd <- vst(dds_nf)
+
+vsd_hmap <- assay(vsd) %>%
   as.data.frame()
-geneSymbols <- getSYMBOL(vsd.nf.hmap$GeneID, data = 'org.Hs.eg.db')
 
-vsd.nf.hmap <- vsd.nf.hmap %>%
+geneSymbols <- getSYMBOL(rownames(vsd_hmap), data = 'org.Hs.eg.db')
+
+vsd_hmap <- vsd_hmap %>%
   mutate(Symbol = geneSymbols, .before = 1)
 
-vsd.nf.hmap <- na.omit(vsd.nf.hmap) #Elimate NAs from missing gene symbols
+vsd_hmap <- na.omit(vsd_hmap) #Elimate NAs from missing gene symbols
 
-DEG.nf <- as.vector(resSig.nf@rownames)
-vsd.nf.hmap.sig <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% DEG.nf,]
+deg <- as.vector(res_sig$GeneID)
+vsd_hmap_sig <- vsd_hmap[rownames(vsd_hmap) %in% deg,]
 #Assign row names from 1st column containing geneSymbols and remove column
-row.names(vsd.nf.hmap.sig) <- vsd.nf.hmap.sig[,1] 
-vsd.nf.hmap.sig[,1] <- NULL
+row.names(vsd_hmap_sig) <- vsd_hmap_sig[,1] 
+vsd_hmap_sig[,1] <- NULL
 
 #Narrow down DEG list to ca. 20 **update - 40 (20240920)
 
@@ -42,24 +50,24 @@ vsd.nf.hmap.sig[,1] <- NULL
 #resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
  # mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
 
-resSig.nf.Narrow <- subset(resSig.nf, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
-resSig.nf.Narrow <- as_tibble(resSig.nf.Narrow) %>%
-  mutate(GeneID = resSig.nf.Narrow@rownames, .before = 1)
-geneSymbols.nf <- getSYMBOL(resSig.nf.Narrow$GeneID, data = 'org.Hs.eg.db')
-resSig.nf.Narrow <- resSig.nf.Narrow %>% 
-  mutate(Symbol = geneSymbols.nf, .before = 1) %>%
+res_sig_08 <- subset(res_sig, log2FoldChange <= -0.8 | log2FoldChange >= 0.8) 
+res_sig_08 <- as_tibble(res_sig_08)
+geneSymbols_08 <- getSYMBOL(as.character(res_sig_08$GeneID), data = 'org.Hs.eg.db')
+res_sig_08 <- res_sig_08 %>% 
+  mutate(Symbol = geneSymbols_08, .before = 1) %>%
   mutate(Change = ifelse(log2FoldChange > 0, 'Up', 'Down'))
 
-vsd.nf.hmap.sigNarrow <- vsd.nf.hmap[rownames(vsd.nf.hmap) %in% resSig.nf.Narrow$GeneID,] #match resSig.nf.Narrow
+vsd_hmap_sig_08 <- vsd_hmap[rownames(vsd_hmap) %in% res_sig_08$GeneID,] #match resSig.nf.Narrow
 
-row.names(vsd.nf.hmap.sigNarrow) <- vsd.nf.hmap.sigNarrow[,1] 
-vsd.nf.hmap.sigNarrow[,1] <- NULL
+row.names(vsd_hmap_sig_08) <- vsd_hmap_sig_08[, 1] 
+vsd_hmap_sig_08[, 1] <- NULL
   
-write_csv(resSig.nf.Narrow, "2024.09.20_DEGs.csv")
+write_csv(res_sig_08, "2024.11.13_DEGs.csv")
 
 #table of DEGs 
-
-DEGtable <- resSig.nf.Narrow %>% 
+#Define myheatcolors first
+myheatcolors <- brewer.pal(name="RdBu", n=11)
+DEGtable <- res_sig_08 %>% 
   select(Symbol, log2FoldChange, padj, Change) %>%
   gt(groupname_col = "Change") %>%
   tab_header(
@@ -69,15 +77,15 @@ DEGtable <- resSig.nf.Narrow %>%
   gt_color_rows(
     columns = log2FoldChange,
     domain = c(-2, 2),
-    palette = myheatcolors
+    palette = rev(myheatcolors)
   ) %>%
   tab_row_group(
     label = md("**Up**"),
-    rows = resSig.nf.Narrow$Change == "Up"
+    rows = res_sig_08$Change == "Up"
   ) %>%
   tab_row_group(
     label = md("**Down**"),
-    rows = resSig.nf.Narrow$Change == "Down"
+    rows = res_sig_08$Change == "Down"
   ) %>%
   row_group_order(groups = c("**Up**", "**Down**"))
   
@@ -85,11 +93,11 @@ gtsave(DEGtable, "tableDEGs2.png") #gtsave doesn't work on fox (no chrome)
 
 ## Cluster DEGs ----
 #Narrowed non-filtered DEGs (FC 0.8, padj 0.05)
-clustRows <- hclust(as.dist(1-cor(t(vsd.nf.hmap.sigNarrow), method="pearson")), method="complete") 
-clustColumns <- hclust(as.dist(1-cor(vsd.nf.hmap.sigNarrow, method="spearman")), method="complete") #cluster columns by spearman correlation
-module.assign <- cutree(clustRows, k=2)
-module.color <- rainbow(length(unique(module.assign)), start=0.1, end=0.9) 
-module.color <- module.color[as.vector(module.assign)] 
+clust_rows <- hclust(as.dist(1-cor(t(vsd_hmap_sig_08), method="pearson")), method="complete") 
+clust_columns <- hclust(as.dist(1-cor(vsd_hmap_sig_08, method="spearman")), method="complete") #cluster columns by spearman correlation
+module_assign <- cutree(clust_rows, k=2)
+module_color <- rainbow(length(unique(module_assign)), start=0.1, end=0.9) 
+module_color <- module_color[as.vector(module_assign)] 
 
 ## Heatmap -----
 
@@ -109,10 +117,10 @@ heatmap_nf <- heatmap.2(as.matrix(vsd.nf.hmap.sigNarrow),
 dev.off()
 #Heatmap with narrowed DEG list
 
-heatmap.2(as.matrix(vsd.hmap.sigNarrow), 
-          Rowv=as.dendrogram(clustRowsN), 
-          Colv=as.dendrogram(clustColumnsN),
-          RowSideColors=module.colorN,
+heatmap.2(as.matrix(vsd_hmap_sig_08), 
+          Rowv=as.dendrogram(clust_rows), 
+          Colv=as.dendrogram(clust_columns),
+          RowSideColors=module_color,
           col=rev(myheatcolors), scale='row',
           density.info="none", trace="none",  
           cexRow=1, cexCol=2, margins = c(4,8),
